@@ -1,5 +1,5 @@
 import { BookApp } from './pages/BookApp.jsx'
-// import { BookDetails } from './pages/BookDetails.jsx'
+import { BookDetails } from './pages/BookDetails.jsx'
 
 
 import { AppHeader } from './cmp/AppHeader.jsx'
@@ -18,7 +18,7 @@ export function RenderBookApp() {
       <section className="app" >
         <main>
           <Switch>
-            {/* <Route component={BookDetails} path="/book/:bookId" /> */}
+            <Route component={BookDetails} path="/book/:bookId" />
             <Route component={BookApp} path="/book" />
           </Switch>
         </main>
