@@ -2,6 +2,7 @@ import { Home } from './ProjectStructure/js/pages/app-home.jsx'
 import { About } from './ProjectStructure/js/pages/app-about.jsx'
 import { BookApp } from './ProjectStructure/js/apps/book/pages/BookApp.jsx'
 import { KeepApp } from './ProjectStructure/js/apps/keep/keepApp.jsx'
+import { MailApp } from './ProjectStructure/js/pages/MailApp.jsx'
 
 // import {RenderBookApp} from './ProjectStructure/js/apps/book/RenderBookApp.jsx'
 
@@ -28,6 +29,7 @@ export function App() {
           <Switch>
             <Route component={BookApp} path="/book" />
             <Route component={KeepApp} path="/notes" />
+            <Route component={MailApp} path="/mail" />
             <Route component={About} path="/about" />
             <Route component={Home} path="/" />
           </Switch>
