@@ -2,3 +2,6 @@
 
 @import "./cmps/app-header.css";
 @import "../js/apps/book/css/main-book.css";
+
+
+@import "./apps/mail/mail-app.css";
