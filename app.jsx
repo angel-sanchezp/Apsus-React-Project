@@ -27,6 +27,7 @@ export function App() {
 
           <h1>welcome </h1>
           <Switch>
+            <Route component={MailApp} path="/mail" />
             <Route component={BookApp} path="/book" />
             <Route component={KeepApp} path="/notes" />
             <Route component={MailApp} path="/mail" />
