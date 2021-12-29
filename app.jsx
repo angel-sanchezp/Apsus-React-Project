@@ -24,8 +24,6 @@ export function App() {
       </header>
       <section className="app" >
         <main>
-
-          <h1>welcome </h1>
           <Switch>
             <Route component={BookApp} path="/book" />
             <Route component={KeepApp} path="/notes" />

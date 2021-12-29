@@ -8,6 +8,9 @@
     padding: 0 2rem;
     margin-bottom: 2rem;
 }
+header.app-header{
+    margin:0px
+}
 
 .app-header .main-nav a {
     text-decoration: none;
