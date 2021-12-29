@@ -1,0 +1,15 @@
+
+.user-msg{
+    position: fixed;
+    top:5%;
+    right: 5%;
+    padding:1.5rem;
+}
+
+
+.user-msg.succes{
+    background-color: darkseagreen;
+}
+.user-msg.danger{
+    background-color:rgb(247, 93, 93);
+}

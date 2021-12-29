@@ -1,0 +1,20 @@
+
+
+
+.review-add{
+    background-color: cadetblue;
+    display: flex;
+    flex-direction: column;
+}
+
+.review-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+    margin-top: -490px;
+    background-color: #5f9ea0bf;
+    width: 500px;
+    height: 359px;
+    justify-content: space-around;
+}

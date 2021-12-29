@@ -1,0 +1,14 @@
+
+
+.about{
+    height: 490px;
+    margin-top: 150px;
+    background-color: rgba(95, 158, 160, 0.822);
+    color: whitesmoke;
+}
+
+.img-about{
+    margin-top: 50px;
+    height: 200px;
+    width: 200;
+}
