@@ -1,6 +1,6 @@
 
-import { storageService } from "../../../../ProjectStructure/js/services/storage.service.js"
-import { utilService } from "../../../../ProjectStructure/js/services/util.service.js"
+import { storageService } from "../../../services/storage.service.js"
+import { utilService } from "../../../services/util.service.js"
 
 
 
