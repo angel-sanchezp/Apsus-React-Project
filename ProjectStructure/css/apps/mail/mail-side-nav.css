@@ -1,6 +1,6 @@
 .mail-side-nav {
     width: 15.375rem;
-    background-color: rgb(230, 230, 230);
+    background-color:whitesmoke;
     flex-direction: column;
     gap: 2rem;
     transform: translate(-100%);
@@ -50,7 +50,7 @@
   }
   
   .side-nav.active {
-    background-color: #292929;
+    background-color: #d3a71fdc;
     margin-left: 0;
     color: #f0eeee;
     padding: 1.2rem;
@@ -69,7 +69,7 @@
     height: 4rem;
     margin-top: 2rem;
     border-radius: 1.5rem;
-    background-color: #292929dc;
+    background-color: #d3a71fdc;
     color: #f0eeee;
     font-size: 1.5rem;
     cursor: pointer;

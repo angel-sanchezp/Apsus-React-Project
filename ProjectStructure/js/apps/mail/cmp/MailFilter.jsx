@@ -26,14 +26,14 @@ export class MailFilter extends React.Component {
     render() {
         const { txt, status } = this.state;
         return (
-            <div>
+            <div className="search-filter-container">
                 <form className="search-mail-form" onSubmit={this.onSubmitFilter}>
-                    <div>
+                    <div className="search-input-div">
                     <input name="txt" value={txt} placeholder="Search Mail..." className="search-input" type="text" onChange={this.handleChange} />
                     </div>
                     <div className="mail-status-select">
                     <label  htmlFor="by-currency-code">By Status</label>
-                    <select name="status" id="status" onChange={this.handleChange}>
+                    <select  className="select-filter-search "name="status" id="status" onChange={this.handleChange}>
                         <option value="Inbox">Inbox</option>
                         <option value="unRead">UnRead</option>
                         <option value="read">Read</option>

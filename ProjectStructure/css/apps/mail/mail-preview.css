@@ -22,11 +22,20 @@
   .read {
     background-color: rgb(230, 230, 230);
   }
+
+  .search-filter-container{
+    margin-bottom: 3rem;
+  }
+
+  .select-filter-search{
+    border: none;
+    font-size: 1.2rem
+  }
   
   .mail-search-btn {
     padding: 0.5rem;
     border: none;
-    background-color: #292929;
+    background-color: #d3a71fdc;
     color: #f0eeee;
     font-family: Lato-Bold;
     font-size: 1rem;
@@ -38,15 +47,20 @@
   
   .search-input {
     width: 100%;
-    border: none;
-    padding: 0.5rem;
-    margin-bottom: 3rem;
+    margin-left: 155px;
+    border: 1px rgba(31, 30, 30, 0.877);
     outline: none;
     font-size: 1.2rem;
+    margin-top: 12px;
+
   }
   
   .mail-search-container {
     display: flex;
+  }
+
+  .search-input-div{
+    margin-bottom: 10px;
   }
   
   .search-mail-form {
@@ -57,7 +71,7 @@
   }
 
   .mail-status-select{
-    margin-top: -43px;
+    margin-top: -1px;
     padding-right: 40px;
   }
   
@@ -131,7 +145,7 @@
   /* List top bar */
   
   .top-bar-list.full {
-    background-color: #292929;
+    background-color: #d3a71fdc;
     height: 3rem;
     color: #f0eeee;
     align-items: center;

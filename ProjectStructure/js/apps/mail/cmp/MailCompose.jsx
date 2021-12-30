@@ -8,6 +8,7 @@ export class MailCompose extends React.Component{
         body: "",
         to: "",
         from: "From: diego@hotmail.com",
+        isDrafted:"",
       },
    }
 
@@ -17,6 +18,15 @@ export class MailCompose extends React.Component{
     const value = target.value
     if (field === "from") return
     this.setState({ mail: { ...this.state.mail, [field]: value } })
+  }
+
+  onDraft=()=>{
+    const {mail}=this.state;
+    if (!mail.subject || !mail.body) return
+    mailService.draftMail(this.state.mail).then(()=>{
+      this.onBack();
+    })
+
   }
 
   onSendMail = () => {
@@ -48,8 +58,9 @@ render() {
           <div className="mail-compose-top">
             <h1>New Mail</h1>
             <div className="new-mail-btn">
-              <Link to={`/keep?subject=${mail.subject}&body=${mail.body}`}>keep</Link>
-              <button onClick={this.onSendMail}>send</button>
+              <Link to={`/keep?subject=${mail.subject}&body=${mail.body}`}><img  onClick={this.onDraft} src="./img/icons/icon-note.png" className="to-note-icon"/></Link>
+              
+              <button  className="send-btn" onClick={this.onSendMail}><img src="./img/icons/send-icon.png"/></button>
              
             </div>
           </div>

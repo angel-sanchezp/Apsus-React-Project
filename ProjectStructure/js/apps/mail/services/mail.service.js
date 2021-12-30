@@ -11,7 +11,9 @@ export const mailService = {
     onReadMail,
     getMailById,
     deleteMail,
-    sendMail
+    sendMail,
+    sortBy,
+    draftMail
 }
 
 var gMails = [
@@ -147,7 +149,40 @@ var gMails = [
 
 const KEY = 'mailsDB';
 
+function sortBy(sortBy) {
+    const mails = _loadMailsFromStorage();
 
+    if (sortBy == 'date') {
+        console.log(sortBy)
+        mails.sort(function (a, b) {
+            return new Date(b.date) - new Date(a.date);
+        });
+        return Promise.resolve(mails)
+    } else if (sortBy === 'from') {
+        console.log(sortBy)
+        mails.sort(function (a, b) {
+            var fromA = a.from.toUpperCase(); // ignore upper and lowercase
+            var fromB = b.from.toUpperCase(); // ignore upper and lowercase
+            if (fromA < fromB) {
+                return -1;
+            }
+            if (fromA > fromB) {
+                return 1;
+            }
+            // names must be equal
+            return 0;
+        });
+        return Promise.resolve(mails)
+    }
+
+
+}
+
+function draftMail(mail){
+    sendMail(mail,true);
+    return Promise.resolve();
+
+}
 
 function query(filterBy = null) {
     const mails = _loadMailsFromStorage();
@@ -161,14 +196,13 @@ function query(filterBy = null) {
 }
 
 function _getFilteredMails(mails, filterBy) {
-    console.log(filterBy)
+    // console.log(filterBy)
     if (filterBy.txt) {
         let { txt } = filterBy
         txt.toUpperCase()
         const txtFilteredMails = mails.filter((mail) => {
             return mail.subject.toLowerCase().includes(txt) || mail.body.toLowerCase().includes(txt) || mail.from.toLowerCase().includes(txt)
         })
-        console.log(txtFilteredMails)
         return Promise.resolve(txtFilteredMails)
     }
 
@@ -199,6 +233,11 @@ function _getFilteredMails(mails, filterBy) {
         case "read":
             mailsToShow = mails.filter((mail) => {
                 return mail.isRead
+            })
+            return Promise.resolve(mailsToShow)
+        case "draft":
+            mailsToShow = mails.filter((mail) => {
+                return mail.status === "draft"
             })
             return Promise.resolve(mailsToShow)
     }
@@ -242,7 +281,8 @@ function onReadMail(mailId) {
     return Promise.resolve()
 }
 
-function sendMail(mail, isDrafted = false) {
+function sendMail(mail, isDrafted=false) {
+    console.log(mail)
     const mails = _loadMailsFromStorage();
     const newMail = {
         id: utilService.makeId(),
@@ -252,11 +292,10 @@ function sendMail(mail, isDrafted = false) {
         isRead: true,
         sentAt: Date.now(),
         to: mail.to,
-        isStarred: false,
         status: `${isDrafted ? 'draft' : 'sent'}`,
     }
-   mails.unshift(newMail)
-   _saveMailsToStorage(mails);
+    mails.unshift(newMail)
+    _saveMailsToStorage(mails);
     return Promise.resolve()
 }
 

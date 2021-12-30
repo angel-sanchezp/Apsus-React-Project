@@ -1,10 +1,8 @@
 import { mailService } from '../services/mail.service.js';
 
-
 import { MailList } from '../cmp/MailList.jsx';
 import { MailSideNav } from '../cmp/MailSideNav.jsx';
 
-const { Link } = ReactRouterDOM
 
 
 export class MailApp extends React.Component {
@@ -13,7 +11,6 @@ export class MailApp extends React.Component {
     state = {
         mails: null,
         filterBy: null,
-
         isNavToggled: false,
 
     }
@@ -36,13 +33,17 @@ export class MailApp extends React.Component {
     }
 
 
+    onSortBy = (sortBy) => {
+        mailService.sortBy(sortBy).then((mails) => {
+            console.log(mails)
+            this.setState({mails});
+        })
+    }
 
     getCurrStatus = (status) => {
         this.setState(
             { filterBy: { ...this.state.filterBy, status: status } },
-            () => {
-                this.onSetFilter(this.state.filterBy)
-            }
+            () => { this.onSetFilter(this.state.filterBy) }
         )
     }
 
@@ -55,21 +56,20 @@ export class MailApp extends React.Component {
     render() {
         const { mails } = this.state
         if (!mails) return <h1>Load..</h1>
-        console.log(mails)
         return (
             <section className="mail-main-container">
                 <MailSideNav
                     getCurrStatus={this.getCurrStatus}
                     onSetFilter={this.onSetFilter}
                     loadMails={this.loadMails}
-                    isNavToggled={this.state.isNavToggled}
-                    exitScreen={this.toggleNav}
                 />
                 <MailList
                     loadMails={this.loadMails}
                     mails={mails}
+                    onSortBy={this.onSortBy}
                     onSetFilter={this.onSetFilter}
                 />
+
             </section>
         )
 

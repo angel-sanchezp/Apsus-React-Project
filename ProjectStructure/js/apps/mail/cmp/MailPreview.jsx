@@ -7,8 +7,6 @@ const { Link } = ReactRouterDOM
 
 export class MailPreview extends React.Component {
     state = {
-
-        // isMsgOpen:false,
         mail: this.props.mail
     }
 
@@ -24,11 +22,7 @@ export class MailPreview extends React.Component {
         mailService.deleteMail(this.props.mail.id).then(this.props.loadMails())
     }
 
-    // onToggleOpen=()=>{
-    //     this.setState(prev => ({ ...prev, isMsgOpen: !prev.isModalShown }), () => console.log(this.state));
-    // }
-
-
+ 
 
     render() {
         const { mail } = this.props;
@@ -41,7 +35,6 @@ export class MailPreview extends React.Component {
                         <div className="mail-subject-container">
                             <p className="mail-subject-preview">{mail.subject}</p>
                         </div>
-
                         {/* <div className="mail-body-container">
                             <MailLongTxt txt={mail.body} />
                         </div> */}
@@ -53,6 +46,7 @@ export class MailPreview extends React.Component {
 
                 </section>
             </Link>
+
 
         )
     }

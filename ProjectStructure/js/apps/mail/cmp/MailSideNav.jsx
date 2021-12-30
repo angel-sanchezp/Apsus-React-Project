@@ -4,19 +4,18 @@ export class MailSideNav extends React.Component {
   state = {
     filterBy: {
       status: "inbox",
-      isStarred: false,
       isRead: false,
       txt: "",
     },
   }
 
   setFilter = (value) => {
-    window.innerWidth
+    // window.innerWidth
     this.setState(
       { filterBy: { ...this.state.filterBy, status: value } },
       () => {
         this.props.getCurrStatus(this.state.filterBy.status)
-        if (window.innerWidth < 920) this.props.exitScreen()
+        // if (window.innerWidth < 920) this.props.exitScreen()
       }
     )
   }
@@ -31,6 +30,7 @@ export class MailSideNav extends React.Component {
           <Link to="/mail/newMail">
             <div className="side-nav-compose">
               <div className="side-nav-icon">
+                <img src="./img/icons/new-mail-icon.png" />
               </div>
               Compose
             </div>
@@ -42,10 +42,7 @@ export class MailSideNav extends React.Component {
             this.setFilter("inbox")
           }}
           className={`${status === "inbox" ? "active" : ""
-            } side-nav side-nav-inbox`}
-        >
-          <div className="side-nav-icon">
-          </div>
+            } side-nav side-nav-inbox`}>
           Inbox
         </div>
         <div
@@ -53,11 +50,7 @@ export class MailSideNav extends React.Component {
           onClick={() => {
             this.setFilter("sent")
           }}
-          className={`${status === "sent" ? "active" : ""} side-nav`}
-        >
-          <div className="side-nav-icon">
-            <i className="fas fa-paper-plane"></i>
-          </div>{" "}
+          className={`${status === "sent" ? "active" : ""} side-nav`}>
           Sent
         </div>
         <div
@@ -65,12 +58,16 @@ export class MailSideNav extends React.Component {
           onClick={() => {
             this.setFilter("trash")
           }}
-          className={`${status === "trash" ? "active" : ""} side-nav`}
-        >
-          <div className="side-nav-icon">
-            <i className="fas fa-trash"></i>
-          </div>{" "}
+          className={`${status === "trash" ? "active" : ""} side-nav`}>
           Trash
+        </div>
+        <div
+          value="draft"
+          onClick={() => {
+            this.setFilter("draft")
+          }}
+          className={`${status === "draft" ? "active" : ""} side-nav`}>
+         Draft
         </div>
       </div>
     )
