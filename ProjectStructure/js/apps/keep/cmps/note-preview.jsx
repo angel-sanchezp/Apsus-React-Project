@@ -4,6 +4,8 @@ import {VideoPreview} from './note-previews/video-preview.jsx'
 import {TodosPreview} from './note-previews/todos-preview.jsx'
 import { notesService } from '../services/note.service.js'
 
+const { Link } = ReactRouterDOM
+
 const PREVIEW_COMPONENTS = {
     'note-txt': TextPreview,
     'note-img': ImgPreview,
@@ -26,6 +28,11 @@ export class NotePreview extends React.Component {
         
     }
 
+
+    handleSendMail = () => {
+
+    }
+
     render(){
         const PreviewComponent = PREVIEW_COMPONENTS[this.props.note.type] || defaultComponent
 
@@ -35,6 +42,8 @@ export class NotePreview extends React.Component {
                 <PreviewComponent note={this.props.note} backroungColor={getRandomColor()}/>
                 <div className="actions-container">
                     <button className="btn-remove" onClick={this.handleRemoveClick}>remove</button>
+                    
+                    
                 </div>
             </article>
         )

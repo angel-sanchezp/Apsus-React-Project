@@ -1,6 +1,7 @@
 import { notesService } from './services/note.service.js'
 import { NotesList } from './cmps/notes-list.jsx'
 import { NotesFilter } from './cmps/notes-filter.jsx'
+import { AddNote } from './cmps/add-note.jsx'
 
 const { Link } = ReactRouterDOM
 
@@ -46,58 +47,47 @@ export class KeepApp extends React.Component {
         this.setState(prevState=>({ ...prevState, filterBy }), this.loadNotes)
     }
 
-    handleInputChange = ({target}) =>{
-
-        console.log(target.value)
-        const value = target.value 
-        this.setState((prevState) => ({...prevState, input: value }))
-        this.onSetInput(value)
-    }
+    
 
     onSetInput = (value) => {
         this.setState(prevState=>({ ...prevState, input:value }))
-        
-
-        
+             
     } 
 
-    onAddnote = (ev) => {
-        ev.preventDefault()
-        console.log(ev)
-        
-        
-        this.onSetInput(this.state.input)
-        const { type, input } = this.state
-        notesService.addNote(type,input).then(() => {
-            this.loadNotes()
-        })
-        this.cleanForm
-
-        
-        
+    get txtSearchParam() {
+        const urlSearchParams = new URLSearchParams(this.props.location.search)
+        return urlSearchParams.get('txt')
     }
 
-    cleanForm = () => {
-        this.setState({ input: '' })
+    get notesToDisplay() {
+        const { notes } = this.state
+        const type = 'note-txt'
+        const txt = this.txtSearchParam
+        if (txt){
+            const info = {
+                txt: this.txtSearchParam
+            }
+            notesService.addNote(type,info).then(() => {
+                this.loadNotes
+            })
+            
+            return notes
+        }else{
+            return notes
+        }
     }
+
+   
 
  
-    
-
     render(){
         const {notes} = this.state
         return (
             <section className="keep-up-container">
                 <div className="keep-margins">
-                    <div className="input-text-container">
-                    <NotesFilter filterBy={this.state.filterBy} onSetFilter={this.onSetFilter}/>
-                        <form className="add-note-box" onSubmit={this.onAddnote}>
-                        <input className="keep-input-text" type="text" placeholder="Enter your text" onChange={this.handleInputChange}></input>
-                        <input type="submit" value="Add"/>
-                        
-                        </form>
-                    </div>
-                    <div className="notes-container"><NotesList notes={notes} onSelectNote={this.onSelectNote} onRemove={this.loadNotes}/></div>
+                <NotesFilter filterBy={this.state.filterBy} onSetFilter={this.onSetFilter}/>
+                <AddNote  onSetInput={this.onSetInput} loadNotes={this.loadNotes}/>
+                    <div className="notes-container"><NotesList notes={this.notesToDisplay} onSelectNote={this.onSelectNote} onRemove={this.loadNotes}/></div>
                 </div>
             </section>
         )

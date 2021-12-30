@@ -47,7 +47,7 @@ const gNotes = [
     id: "n104",
     type: "note-video",
     info: {
-        url: "https://www.youtube.com/embed/BapcpzI-7l8",
+        url: "BapcpzI-7l8",
         title: "good song for my wedding"
         },
         style: {
@@ -82,7 +82,6 @@ function _getFilteredNotes(notes, filterBy) {
 function addNote(type, info){
     var notes = _loadNotesFromStorage()
     var note = _createNote(type, info)
-    console.log(note)
     notes = [note, ...notes]
     _saveNotesToStorage(notes);
     return Promise.resolve(note)
@@ -100,9 +99,7 @@ function _createNote(type, info) {
         id: utilService.makeId(),
         type: type,
         isPinned: true,
-        info: {
-            txt: info
-       }
+        info
     }
 }
 
