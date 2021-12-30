@@ -9,23 +9,26 @@ export class MailSideNav extends React.Component {
     },
   }
 
+
+
   setFilter = (value) => {
-    // window.innerWidth
     this.setState(
       { filterBy: { ...this.state.filterBy, status: value } },
       () => {
         this.props.getCurrStatus(this.state.filterBy.status)
-        // if (window.innerWidth < 920) this.props.exitScreen()
+
       }
     )
   }
 
+
+
+
   render() {
     const { status } = this.state.filterBy
-    const { isNavToggled } = this.props
 
     return (
-      <div className={`mail-side-nav ${isNavToggled && "active-side-nav"}`}>
+      <div className={`mail-side-nav ${"active-side-nav"}`}>
         <div className="compose-container">
           <Link to="/mail/newMail">
             <div className="side-nav-compose">
@@ -67,7 +70,7 @@ export class MailSideNav extends React.Component {
             this.setFilter("draft")
           }}
           className={`${status === "draft" ? "active" : ""} side-nav`}>
-         Draft
+          Draft
         </div>
       </div>
     )

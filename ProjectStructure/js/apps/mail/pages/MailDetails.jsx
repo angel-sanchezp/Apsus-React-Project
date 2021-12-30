@@ -1,5 +1,6 @@
 import { utilService } from "../../../services/util.service.js";
-import { mailService } from "../sevices/mail.service.js";
+import { mailService } from "../services/mail.service.js";
+import {eventBusService} from "../../../services/event-bus.service.js"
 
 export class MailDetails extends React.Component {
     state = {
@@ -25,7 +26,11 @@ export class MailDetails extends React.Component {
 
 
     onDeleteMail = () => {
-        mailService.deleteMail(this.state.mail.id).then(this.onBack)
+        mailService.deleteMail(this.state.mail.id).then(()=>{
+            eventBusService.emit('user-msg',{txt:'Mail was delete!',type:'danger'})
+            this.onBack()
+
+        })
     }
 
     onBack = () => {

@@ -1,7 +1,8 @@
 
 
 import { utilService } from "../../../services/util.service.js";
-import { mailService } from "../sevices/mail.service.js";
+import { mailService } from "../../mail/services/mail.service.js";
+import {eventBusService} from "../../../services/event-bus.service.js"
 
 const { Link } = ReactRouterDOM
 
@@ -19,7 +20,11 @@ export class MailPreview extends React.Component {
 
     onDeleteMail = (ev) => {
         ev.preventDefault();
-        mailService.deleteMail(this.props.mail.id).then(this.props.loadMails())
+        mailService.deleteMail(this.props.mail.id).then(()=>{
+            eventBusService.emit('user-msg',{txt:'Mail was delete!',type:'danger'})
+            this.props.loadMails()
+
+        })
     }
 
  
@@ -28,16 +33,22 @@ export class MailPreview extends React.Component {
         const { mail } = this.props;
 
         return (
-            <Link to={ `/mail/${mail.id}`}>
+            <Link to={ `/mail/details/${mail.id}`}>
                 <section>
                     <section className={`mail-preview ${(mail.isRead) ? 'read' : ''}`}>
                         <h3 className="mail-from-preview">{mail.from}</h3>
                         <div className="mail-subject-container">
                             <p className="mail-subject-preview">{mail.subject}</p>
                         </div>
+                        <div className="mail-body-container">
+                            <p className="mail-subject-preview">{mail.body}</p>
+                        </div>
                         {/* <div className="mail-body-container">
                             <MailLongTxt txt={mail.body} />
                         </div> */}
+                        <div className="mail-delete-icon">
+                            <img onClick={this.onDeleteMail} src="../../img/icons/trash-icon.png"  />
+                        </div>
 
                         <div className="mail-time-container">
                             <p className="mail-sent-time-preview">{utilService.getFormattedDate(mail.sentAt)}</p>

@@ -1,8 +1,8 @@
 @import "./parts/helpers.css";
 @import "./parts/base.css";
+@import "./cmps/user-msg.css";
 
 @import "../js/apps/book/css/main-book.css";
-@import "./parts/base.css";
 
 /* HOME APP */
 @import "./cmps/app-home.css";

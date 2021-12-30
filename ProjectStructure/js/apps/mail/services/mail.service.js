@@ -265,7 +265,12 @@ function deleteMail(mailId) {
     const mailIdx = mails.findIndex(function (mail) {
         return mailId === mail.id
     })
-    mails[mailIdx].status = "trash"
+    if(mails[mailIdx].status!=="trash") {
+        mails[mailIdx].status = "trash";
+    } 
+    else{
+        mails.splice(mailIdx,1);
+    }
 
     _saveMailsToStorage(mails);
     return Promise.resolve()

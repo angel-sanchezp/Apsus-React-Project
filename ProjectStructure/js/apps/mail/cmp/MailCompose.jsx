@@ -1,4 +1,5 @@
 import { mailService } from "../services/mail.service.js";
+import {eventBusService} from "../../../services/event-bus.service.js"
 const { Link } = ReactRouterDOM
 export class MailCompose extends React.Component{
 
@@ -20,6 +21,20 @@ export class MailCompose extends React.Component{
     this.setState({ mail: { ...this.state.mail, [field]: value } })
   }
 
+ 
+  // get searchParam() {
+  //   const urlSearchParams = new URLSearchParams(this.props.location.search);
+  //   return urlSearchParams.get('body')
+  // }
+
+
+  // get notefromKeep() {
+  //   const { body } = this.searchParam
+  //   return <Link to="/mail/newMail" body={body}></Link>
+  // }
+
+
+
   onDraft=()=>{
     const {mail}=this.state;
     if (!mail.subject || !mail.body) return
@@ -33,6 +48,7 @@ export class MailCompose extends React.Component{
     const {mail} = this.state;
     if (!mail.subject || !mail.to) return
     mailService.sendMail(this.state.mail).then(() => {
+      eventBusService.emit('user-msg',{txt:'Mail was saved!',type:'succes'})
       this.onBack()
     })
   }
@@ -58,7 +74,7 @@ render() {
           <div className="mail-compose-top">
             <h1>New Mail</h1>
             <div className="new-mail-btn">
-              <Link to={`/keep?subject=${mail.subject}&body=${mail.body}`}><img  onClick={this.onDraft} src="./img/icons/icon-note.png" className="to-note-icon"/></Link>
+              <Link to={`/notes/?title=${mail.subject}&txt=${mail.body}`}><img src="./img/icons/icon-note.png" className="to-note-icon"/></Link>
               
               <button  className="send-btn" onClick={this.onSendMail}><img src="./img/icons/send-icon.png"/></button>
              
@@ -119,3 +135,4 @@ render() {
 }
 
 
+// onClick={this.onDraft}

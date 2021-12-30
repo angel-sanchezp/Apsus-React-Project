@@ -2,16 +2,15 @@ import { mailService } from '../services/mail.service.js';
 
 import { MailList } from '../cmp/MailList.jsx';
 import { MailSideNav } from '../cmp/MailSideNav.jsx';
+import { MailCompose } from '../cmp/MailCompose.jsx';
 
-
-
+const {Route}= ReactRouterDOM
 export class MailApp extends React.Component {
 
 
     state = {
         mails: null,
         filterBy: null,
-        isNavToggled: false,
 
     }
 
@@ -27,6 +26,8 @@ export class MailApp extends React.Component {
 
 
 
+
+
     onSetFilter = (filterBy) => {
         console.log(filterBy)
         this.setState(prevState => ({ ...prevState, filterBy }), this.loadMails)
@@ -36,7 +37,7 @@ export class MailApp extends React.Component {
     onSortBy = (sortBy) => {
         mailService.sortBy(sortBy).then((mails) => {
             console.log(mails)
-            this.setState({mails});
+            this.setState({ mails });
         })
     }
 
@@ -47,11 +48,7 @@ export class MailApp extends React.Component {
         )
     }
 
-    toggleNav = () => {
-        this.setState({ isNavToggled: !this.state.isNavToggled })
-    }
-
-
+  
 
     render() {
         const { mails } = this.state
@@ -69,7 +66,11 @@ export class MailApp extends React.Component {
                     onSortBy={this.onSortBy}
                     onSetFilter={this.onSetFilter}
                 />
-
+                {/* <Route  path={`${this.props.match.path}/newMail`} render={(props) => {
+                    return <MailCompose {...props}/>
+                }} />
+              */}
+                 <Route exact component={MailCompose} path="/mail/newMail" />
             </section>
         )
 
