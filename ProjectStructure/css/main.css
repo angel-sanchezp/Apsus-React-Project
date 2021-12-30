@@ -1,7 +1,11 @@
 @import "./parts/helpers.css";
+@import "./parts/base.css";
 
-@import "./cmps/app-header.css";
 @import "../js/apps/book/css/main-book.css";
+
+/* HOME APP */
+@import "./cmps/app-home.css";
+@import "./cmps/app-header.css";
 
 /* MAIL */
 @import "./apps/mail/mail-app.css";
