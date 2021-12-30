@@ -33,7 +33,7 @@ export class MailPreview extends React.Component {
         const { mail } = this.props;
 
         return (
-            <Link to={ `/mail/details/${mail.id}`}>
+            <Link to={ `/mail/details/${mail.id}`}  style={{ textDecoration: 'none' }}>
                 <section>
                     <section className={`mail-preview ${(mail.isRead) ? 'read' : ''}`}>
                         <h3 className="mail-from-preview">{mail.from}</h3>

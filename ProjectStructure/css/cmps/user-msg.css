@@ -3,6 +3,16 @@
     top: 5%;
     right: 5%;
     padding: 1rem 1.5rem;
+    animation: mymove 5s infinite;
+}
+
+@keyframes mymove {
+    from {
+        right: 0px;
+    }
+    to {
+        right: 200px;
+    }
 }
 
 .user-msg button {
@@ -12,9 +22,11 @@
 }
 
 .user-msg.success {
-    background-color: rgb(119, 238, 179);
+    background-color: white;
+   color: rgb(119, 238, 179);
 }
 
 .user-msg.danger {
-    background-color: rgb(238, 119, 119);
+    color: rgb(238, 119, 119);
+    background-color: white;
 }

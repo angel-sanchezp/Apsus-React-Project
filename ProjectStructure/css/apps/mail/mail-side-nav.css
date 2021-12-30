@@ -1,46 +1,165 @@
 .mail-side-nav {
-    width: 15.375rem;
-    background-color:whitesmoke;
+  width: 15.375rem;
+  background-color: rgba(245, 245, 245, 0.719);
+  flex-direction: column;
+  gap: 2rem;
+  transform: translate(-100%);
+  transition: transform 0.3s;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  
+}
+
+.mail-side-nav.active-side-nav {
+  transform: translate(0);
+  z-index: 1;
+}
+
+.mail-side-nav .side-nav-inbox {
+  margin-top: 3.125rem;
+}
+
+
+.side-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14rem;
+  height: 4rem;
+  margin-top: 2rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: rgba(29, 28, 28, 0.842);
+  background-color: whitesmoke;
+  border: none;
+  border-radius: 1.5rem;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.side-nav:hover{
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.mail-side-nav>*:not(:first-child) {
+  font-family: Lato-Bold;
+  font-size: 1.5rem;
+  margin-left: 1.25rem;
+  display: flex;
+}
+
+
+.side-nav.active {
+  background-color: rgb(194, 189, 189);
+  margin-left: 0;
+  color: #f7ebebd5;
+  padding: 1.2rem;
+  border-radius: 0px 30px 30px 0px;
+}
+
+
+.side-nav-compose {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14rem;
+  height: 4rem;
+  margin-top: 2rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: rgba(29, 28, 28, 0.842);
+  background-color: whitesmoke;
+  border: none;
+  border-radius: 1.5rem;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.side-nav-compose:hover{
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.side-nav-compose i {
+  color: #f0eeee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.compose-container {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 920px) {
+  .mail-side-nav {
+    display: flex;
+    transform: translate(0);
+    position: static;
+  }
+
+  .side-nav {
+    margin: 0;
+  }
+}
+
+@media (min-width: 1250px) {
+  .mail-side-nav {
+    width: 17rem;
+  }
+}
+
+@media (min-width: 1500px) {
+  .mail-side-nav {
+    width: 19.375rem;
+    background-color: rgb(230, 230, 230);
+    display: flex;
     flex-direction: column;
     gap: 2rem;
-    transform: translate(-100%);
-    transition: transform 0.3s;
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
   }
-  
-  .mail-side-nav.active-side-nav {
-    transform: translate(0);
-    z-index: 1;
-  }
-  
+
   .mail-side-nav .side-nav-inbox {
     margin-top: 3.125rem;
   }
-  
+
   .side-nav {
     cursor: pointer;
-    margin: 1rem;
   }
-  
-  .mail-side-nav > *:not(:first-child) {
+
+  .mail-side-nav>*:not(:first-child) {
     font-family: Lato-Bold;
     font-size: 1.5rem;
     margin-left: 1.25rem;
     display: flex;
   }
-  
+
   i {
     color: #292929;
     margin-right: 1rem;
   }
-  
+
   i.active-white {
     color: #f0eeee;
   }
-  
+
   .side-nav-icon {
     width: 1.8rem;
     height: 1.8rem;
@@ -48,19 +167,19 @@
     justify-content: center;
     align-self: center;
   }
-  
+
   .side-nav.active {
-    background-color: #d3a71fdc;
+    background-color: #292929;
     margin-left: 0;
     color: #f0eeee;
     padding: 1.2rem;
     border-radius: 0px 30px 30px 0px;
   }
-  
+
   .side-nav.active i {
     color: #f0eeee;
   }
-  
+
   .side-nav-compose {
     display: flex;
     justify-content: center;
@@ -69,106 +188,21 @@
     height: 4rem;
     margin-top: 2rem;
     border-radius: 1.5rem;
-    background-color: #d3a71fdc;
+    background-color: #292929;
     color: #f0eeee;
     font-size: 1.5rem;
     cursor: pointer;
   }
-  
+
   .side-nav-compose i {
     color: #f0eeee;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  
+
   .compose-container {
     display: flex;
     justify-content: center;
   }
-  
-  @media (min-width: 920px) {
-    .mail-side-nav {
-      display: flex;
-      transform: translate(0);
-      position: static;
-    }
-    .side-nav {
-      margin: 0;
-    }
-  }
-  
-  @media (min-width: 1250px) {
-    .mail-side-nav {
-      width: 17rem;
-    }
-  }
-  
-  @media (min-width: 1500px) {
-    .mail-side-nav {
-      width: 19.375rem;
-      background-color: rgb(230, 230, 230);
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-    .mail-side-nav .side-nav-inbox {
-      margin-top: 3.125rem;
-    }
-    .side-nav {
-      cursor: pointer;
-    }
-    .mail-side-nav > *:not(:first-child) {
-      font-family: Lato-Bold;
-      font-size: 1.5rem;
-      margin-left: 1.25rem;
-      display: flex;
-    }
-    i {
-      color: #292929;
-      margin-right: 1rem;
-    }
-    i.active-white {
-      color: #f0eeee;
-    }
-    .side-nav-icon {
-      width: 1.8rem;
-      height: 1.8rem;
-      display: flex;
-      justify-content: center;
-      align-self: center;
-    }
-    .side-nav.active {
-      background-color: #292929;
-      margin-left: 0;
-      color: #f0eeee;
-      padding: 1.2rem;
-      border-radius: 0px 30px 30px 0px;
-    }
-    .side-nav.active i {
-      color: #f0eeee;
-    }
-    .side-nav-compose {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 14rem;
-      height: 4rem;
-      margin-top: 2rem;
-      border-radius: 1.5rem;
-      background-color: #292929;
-      color: #f0eeee;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-    .side-nav-compose i {
-      color: #f0eeee;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .compose-container {
-      display: flex;
-      justify-content: center;
-    }
-  }
+}
