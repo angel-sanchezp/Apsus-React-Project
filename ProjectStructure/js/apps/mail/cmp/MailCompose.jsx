@@ -22,16 +22,20 @@ export class MailCompose extends React.Component{
   }
 
  
-  // get searchParam() {
-  //   const urlSearchParams = new URLSearchParams(this.props.location.search);
-  //   return urlSearchParams.get('body')
-  // }
+  get searchParam() {
+    const urlSearchParams = new URLSearchParams(this.props.location.search);
+    return urlSearchParams.get('body')
+  }
 
 
-  // get notefromKeep() {
-  //   const { body } = this.searchParam
-  //   return <Link to="/mail/newMail" body={body}></Link>
-  // }
+  get notefromKeep() {
+    const body = this.searchParam
+    console.log(body)
+    if(body){
+      return body
+    }
+     return this.state.mail.body
+  }
 
 
 
@@ -120,7 +124,7 @@ render() {
             <form>
               <textarea
                 onChange={this.handleChange}
-                value={mail.body}
+                value={this.notefromKeep}
                 name="body"
                 type="textarea"
                 placeholder="Email Content..."
