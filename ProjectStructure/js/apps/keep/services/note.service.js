@@ -79,9 +79,10 @@ function _getFilteredNotes(notes, filterBy) {
   
 
 
-function addNote(type){
-    const notes = _loadNotesFromStorage()
-    var note = _createNote(type, note.info)
+function addNote(type, info){
+    var notes = _loadNotesFromStorage()
+    var note = _createNote(type, info)
+    console.log(note)
     notes = [note, ...notes]
     _saveNotesToStorage(notes);
     return Promise.resolve(note)
@@ -99,8 +100,10 @@ function _createNote(type, info) {
         id: utilService.makeId(),
         type: type,
         isPinned: true,
-        info: info
+        info: {
+            txt: info
        }
+    }
 }
 
 function getNoteById(noteId) {
