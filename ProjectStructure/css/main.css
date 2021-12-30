@@ -2,6 +2,7 @@
 @import "./parts/base.css";
 
 @import "../js/apps/book/css/main-book.css";
+@import "./parts/base.css";
 
 /* HOME APP */
 @import "./cmps/app-home.css";
@@ -17,3 +18,4 @@
 
 /* Keep */
 @import "./apps/keep/main-kepp.css";
+@import "./apps/keep/note-preview.css";
