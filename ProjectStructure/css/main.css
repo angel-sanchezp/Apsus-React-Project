@@ -2,9 +2,11 @@
 
 @import "./cmps/app-header.css";
 @import "../js/apps/book/css/main-book.css";
+@import "./parts/base.css";
 
 /* MAIL */
 @import "./apps/mail/mail-app.css";
 
 /* Keep */
 @import "./apps/keep/main-kepp.css";
+@import "./apps/keep/note-preview.css";
