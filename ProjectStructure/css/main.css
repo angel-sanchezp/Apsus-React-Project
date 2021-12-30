@@ -1,4 +1,4 @@
-
+@import "./parts/helpers.css";
 
 @import "./cmps/app-header.css";
 @import "../js/apps/book/css/main-book.css";
@@ -6,6 +6,11 @@
 
 /* MAIL */
 @import "./apps/mail/mail-app.css";
+@import "./apps/mail/mail-list.css";
+@import "./apps/mail/mail-details.css";
+@import "./apps/mail/mail-compose.css";
+@import "./apps/mail/mail-side-nav.css";
+@import "./apps/mail/mail-preview.css";
 
 /* Keep */
 @import "./apps/keep/main-kepp.css";

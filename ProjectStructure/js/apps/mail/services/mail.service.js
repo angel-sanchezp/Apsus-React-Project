@@ -5,15 +5,16 @@ import { utilService } from "../../../services/util.service.js"
 
 
 
-export const mailService={
+export const mailService = {
     query,
+    getAllUnreadMails,
+    onReadMail,
+    getMailById,
+    deleteMail,
+    sendMail
 }
 
-
-
-const KEY = "mailsDB";
-
-const gEmails = [
+var gMails = [
     {
         id: utilService.makeId(),
         from: "stas",
@@ -29,6 +30,7 @@ const gEmails = [
         to: "angel@gmailcom",
         isStarred: false,
         status: "inbox",
+        date: "Jun 25",
     },
     {
         id: utilService.makeId(),
@@ -40,6 +42,7 @@ const gEmails = [
         to: "daniel",
         isStarred: false,
         status: "sent",
+        date: "May 25",
     },
     {
         id: utilService.makeId(),
@@ -51,6 +54,7 @@ const gEmails = [
         to: "dana@mail.com",
         isStarred: false,
         status: "inbox",
+        date: "Oct 25",
     },
     {
         id: utilService.makeId(),
@@ -70,6 +74,7 @@ const gEmails = [
         to: "dana@mail.com",
         isStarred: false,
         status: "inbox",
+        date: "Apr 05",
     },
     {
         id: utilService.makeId(),
@@ -88,6 +93,7 @@ const gEmails = [
         to: "dana@mail.com",
         isStarred: false,
         status: "inbox",
+        date: "Jul 25",
     },
     {
         id: utilService.makeId(),
@@ -99,6 +105,7 @@ const gEmails = [
         to: "dana@mail.com",
         isStarred: false,
         status: "inbox",
+        date: "Nov 25",
     },
     {
         id: utilService.makeId(),
@@ -109,7 +116,8 @@ const gEmails = [
         sentAt: 1551133930594,
         to: "dana@mail.com",
         isStarred: false,
-        status: "sent",
+        status: "trash",
+        date: "Sep 25",
     },
     {
         id: utilService.makeId(),
@@ -121,6 +129,7 @@ const gEmails = [
         to: "bank@leumi.co.il",
         isStarred: false,
         status: "sent",
+        date: "Dec 25",
     },
     {
         id: utilService.makeId(),
@@ -132,31 +141,140 @@ const gEmails = [
         to: "dana@mail.com",
         isStarred: false,
         status: "sent",
+        date: "Mar 25",
     },
 ]
 
-_createMails();
+const KEY = 'mailsDB';
 
-function query(){
-    const mails=_loadMailsFromStorage();
-    return Promise.resolve(mails);
+
+
+function query(filterBy = null) {
+    const mails = _loadMailsFromStorage();
+    if (!mails || !mails.length) {
+        _createMails();
+    }
+    if (!filterBy) return Promise.resolve(mails)
+    const filteredMails = _getFilteredMails(mails, filterBy)
+    return Promise.resolve(filteredMails)
+
 }
 
-
-function _createMails(){
-    var mails=_loadMailsFromStorage();
-    if(!mails || !mails.length){
-        mails=gEmails;
+function _getFilteredMails(mails, filterBy) {
+    console.log(filterBy)
+    if (filterBy.txt) {
+        let { txt } = filterBy
+        txt.toUpperCase()
+        const txtFilteredMails = mails.filter((mail) => {
+            return mail.subject.toLowerCase().includes(txt) || mail.body.toLowerCase().includes(txt) || mail.from.toLowerCase().includes(txt)
+        })
+        console.log(txtFilteredMails)
+        return Promise.resolve(txtFilteredMails)
     }
 
-    _saveMailsToStorage(mails);
+    let mailsToShow
+    switch (filterBy.status) {
+        case "inbox":
+            mailsToShow = mails.filter((mail) => {
+                return mail.status === "inbox"
+            })
+            return Promise.resolve(mailsToShow)
 
+        case "unRead":
+            mailsToShow = mails.filter((mail) => {
+                return !mail.isRead
+            })
+            return Promise.resolve(mailsToShow)
+
+        case "sent":
+            mailsToShow = mails.filter((mail) => {
+                return mail.status === "sent"
+            })
+            return Promise.resolve(mailsToShow)
+        case "trash":
+            mailsToShow = mails.filter((mail) => {
+                return mail.status === "trash"
+            })
+            return Promise.resolve(mailsToShow)
+        case "read":
+            mailsToShow = mails.filter((mail) => {
+                return mail.isRead
+            })
+            return Promise.resolve(mailsToShow)
+    }
 }
 
-function _saveMailsToStorage(books) {
-    storageService.saveToStorage(KEY, books)
-  }
-  
-  function _loadMailsFromStorage() {
+function getMailById(mailId) {
+    const mails = _loadMailsFromStorage();
+    const mail = mails.find(function (mail) {
+        return mail.id === mailId
+    })
+    return Promise.resolve(mail)
+}
+
+
+function _createMails() {
+    var mails = _loadMailsFromStorage();
+    if (!mails || !mails.length) {
+        mails = gMails;
+    }
+    _saveMailsToStorage(mails);
+}
+
+function deleteMail(mailId) {
+    const mails = _loadMailsFromStorage();
+    const mailIdx = mails.findIndex(function (mail) {
+        return mailId === mail.id
+    })
+    mails[mailIdx].status = "trash"
+
+    _saveMailsToStorage(mails);
+    return Promise.resolve()
+}
+
+function onReadMail(mailId) {
+    const mails = _loadMailsFromStorage();
+    const mailIdx = mails.findIndex(function (mail) {
+        return mailId === mail.id
+    })
+    mails[mailIdx].isRead = true
+    _saveMailsToStorage(mails);
+    return Promise.resolve()
+}
+
+function sendMail(mail, isDrafted = false) {
+    const mails = _loadMailsFromStorage();
+    const newMail = {
+        id: utilService.makeId(),
+        from: "You",
+        subject: mail.subject,
+        body: mail.body,
+        isRead: true,
+        sentAt: Date.now(),
+        to: mail.to,
+        isStarred: false,
+        status: `${isDrafted ? 'draft' : 'sent'}`,
+    }
+   mails.unshift(newMail)
+   _saveMailsToStorage(mails);
+    return Promise.resolve()
+}
+
+
+
+function getAllUnreadMails() {
+    const mails = _loadMailsFromStorage();
+    const unReadMails = mails.filter((mail) => {
+        return !mail.isRead
+    })
+    return Promise.resolve(unReadMails.length)
+}
+
+
+function _saveMailsToStorage(mails) {
+    storageService.saveToStorage(KEY, mails)
+}
+
+function _loadMailsFromStorage() {
     return storageService.loadFromStorage(KEY)
-  }
+}

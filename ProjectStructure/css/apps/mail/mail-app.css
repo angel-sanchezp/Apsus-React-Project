@@ -1,6 +1,13 @@
 
-.mail-app{
-    height: 20vh;
-    background-color: cadetblue;
-    color: whitesmoke;
+.mail-main-container {
+    display: flex;
+    flex-grow: 1;
+    min-height: 100%;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 920px) {
+    .mail-main-container {
+        margin-bottom: 0;
+    }
 }
