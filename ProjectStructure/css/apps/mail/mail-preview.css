@@ -1,32 +1,44 @@
 .mail-preview {
   display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
   flex-direction: column;
-  border: 1px solid #29292914;
+  border-bottom: 1px solid #29292914;
   padding: 0.5rem;
   transition: background-color 1.5s;
 }
 
 /* .mail-preview:hover{
     background-color: #2EE59D;
-    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+   box-shadow: 1px 1px 8px 1px #b6b6b6;
     color: #fff;
     transform: translateY(-7px);
   } */
 
 .mail-body {
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
   padding: 0.5rem;
+  flex-grow: 1;
+  min-width: 334px;
 }
 
+.mail-subj{
+  /* padding: 0.5rem; */
+  flex-grow: 1;
+  min-width: 260px;
+}
+
+
 .mail-preview a {
-  text-decoration: none;
   color: rgba(128, 128, 128, 0.747)
 }
 
+
 .mail-preview:hover {
   background-color: rgb(208, 207, 207);
-  box-shadow: 0px 15px 20px rgb(100 121 143 / 12%);
+  box-shadow: 1px 1px 8px 1px #b6b6b6;
   cursor: pointer;
   transform: translateY(-5px);
 }
@@ -155,6 +167,9 @@
 /* List top bar */
 
 .top-bar-list.full {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #b1afaf8c;
   height: 3rem;
   color: #383838;
@@ -163,21 +178,39 @@
   display: none;
 }
 
-.top-bar-list.folder {
+.cell{
+  display: flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+}
+
+/* .top-bar-list.folder {
   background-color: #383838;
   height: 3rem;
   color: #f0eeee;
   display: flex;
   align-items: center;
   padding: 0.5rem;
-}
+} */
 
 .mail-from-list {
   width: 10rem;
 }
 
 .mail-subject-list {
-  width: 10rem;
+  width: 20rem;
+}
+
+.mail-delete-icon{
+  display: flex;
+  align-items:flex-end;
+  text-align: right;
+  justify-content: end;
+  /* flex-grow: 3;
+  text-align: right;
+  justify-self: flex-end; */
 }
 
 .mail-time-list {
@@ -189,6 +222,12 @@
 .no-mails-to-show {
   margin-top: 1rem;
   font-size: 1.2rem;
+}
+
+.email-content {
+  display: flex;
+  gap: 30px;
+  font-family: lato-bold;
 }
 
 /* MEDIA QUERIES */

@@ -33,7 +33,7 @@ export class MailSideNav extends React.Component {
           <Link to="/mail/newMail">
             <div className="side-nav-compose">
               <div className="side-nav-icon">
-                <img src="./img/icons/new-mail-icon.png" />
+                <img src="./img/icons/plus.png" />
               </div>
               Compose
             </div>

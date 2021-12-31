@@ -69,7 +69,7 @@ export class MailApp extends React.Component {
                     return <MailCompose {...props}/>
                 }} />
               */}
-                 <Route exact component={MailCompose} path="/mail/newMail" />
+                 <Route exact component={MailCompose} path="/mail/newMail"  loadMails={this.loadMails}/>
             </section>
         )
 

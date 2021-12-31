@@ -15,10 +15,11 @@ export class MailCompose extends React.Component {
 
   componentDidMount() {
     const urlSearchParams = new URLSearchParams(this.props.location.search);
+    const newSubj= urlSearchParams.get('subject')
     const newBody = urlSearchParams.get('body')
     console.log(newBody)
     if (newBody) {
-      this.setState({ mail: { ...this.state.mail, body: newBody } })
+      this.setState({ mail: { ...this.state.mail, body: newBody,subject:newSubj } })
       console.log(this.state.mail)
     }
   }
@@ -38,6 +39,7 @@ export class MailCompose extends React.Component {
     const { mail } = this.state;
     if (!mail.subject || !mail.body) return
     mailService.draftMail(this.state.mail).then(() => {
+      this.props.loadMails()
       this.onBack();
     })
   }
@@ -47,7 +49,8 @@ export class MailCompose extends React.Component {
     if (!mail.subject || !mail.to) return
     mailService.sendMail(this.state.mail).then(() => {
       eventBusService.emit('user-msg', { txt: 'Mail was saved!', type: 'success' })
-      this.onBack()
+      this.onBack();
+      this.props.loadMails();
     })
   }
 

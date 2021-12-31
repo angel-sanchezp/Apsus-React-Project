@@ -287,7 +287,7 @@ function onReadMail(mailId) {
 }
 
 function sendMail(mail, isDrafted=false) {
-    console.log(mail)
+    // console.log(mail)
     const mails = _loadMailsFromStorage();
     const newMail = {
         id: utilService.makeId(),

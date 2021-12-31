@@ -43,7 +43,7 @@ export class UserMsg extends React.Component {
                 <img src="../../img/icons/succes-icon.png" />
                 <h2>{msg.txt}</h2>
             </div>
-        } else if (msg.type === 'danger') {
+        } else {
             return <div className={`user-msg ${msg.type}`}>
             <button onClick={this.onCloseMsg}>&times;</button>
             <img src="../../img/icons/danger-icon.png" />

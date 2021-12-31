@@ -5,10 +5,14 @@
     margin-top: 2rem;
     margin: 0 2rem;
     margin-right: 2rem;
-    display: flex;
+    display:flex;
     flex-direction: column;
     flex-grow: 1;
   }
+  
+  /* .list-container{
+    overflow:scroll;
+  } */
 
   
   @media (min-width: 1250px) {

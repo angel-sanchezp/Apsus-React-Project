@@ -27,7 +27,7 @@ export class MailDetails extends React.Component {
 
     onDeleteMail = () => {
         mailService.deleteMail(this.state.mail.id).then(()=>{
-            eventBusService.emit('user-msg',{txt:'Mail was delete!',type:'danger'})
+            eventBusService.emit('user-msg',{txt:'Mail was delete!',type:'moved to trash'})
             this.onBack()
 
         })
@@ -50,7 +50,6 @@ export class MailDetails extends React.Component {
         if (!mail) return <div>Loading...</div>
 
         return (
-
             <section className="mail-details main-layout">
                 <div className="mail-content">
                     <div className="mail-content-head">
