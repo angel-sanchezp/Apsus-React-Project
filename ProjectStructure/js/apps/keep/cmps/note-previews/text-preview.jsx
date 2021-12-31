@@ -1,33 +1,19 @@
-
-
-
-export function TextPreview({ note, onClick, editingNote }) {
+export function TextPreview({ note, onClick, isEditMode }) {
     const { Link } = ReactRouterDOM
-    console.log(editingNote)
 
-    if(editingNote){
-        return(
-            <React.Fragment>
-            <div className = "card-txt" onClick={() => onClick(note)}>
-                <div >{note.info.txt}</div>
-                <Link className="btn-mail" to={`/mail/newMail?body=${note.info.txt}`}>send mail</Link>
-            </div>
-            <section className="modal-container">
-                <div className="modal">
-                    <h1>Edit your keep </h1>
-                    <input type="text" id="text-modal" name="text-modal" value={note.info.txt}/>
+    return (
+        <div className = "card-txt" onClick={() => onClick(note)}>
+            { isEditMode ? 
+                <React.Fragment>
+                <div className= "text-modal">
+                <textarea type="text" id="title-input" name="title-input" value= {note.info.title || ''} placeholder="Enter your title"/>
+                <textarea type="text" id="text-input" name="text-input" value={note.info.txt || ''} placeholder="Enter your note"/>
                 </div>
-            </section>
-            </React.Fragment>
-        )
-
-    }else{
-        return (
-            <div className = "card-txt" onClick={() => onClick(note)}>
+                </React.Fragment> : 
                 <div >{note.info.txt}</div>
-                <Link to={`/mail/newMail?body=${note.info.txt}`}>send mail</Link>
-            </div>
-        )
-    }
-    
+                
+            }
+            <Link className="btn-mail" to={`/mail/newMail?body=${note.info.txt}`}>send mail</Link>
+        </div> 
+    )  
 }

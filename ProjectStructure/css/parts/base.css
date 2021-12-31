@@ -7,3 +7,20 @@ body{
     margin: 0px
 }
 
+.linkdin-icon{
+  width:40px
+}
+.github-icon{
+  width: 40px;
+  margin-left:5px
+}
+
+.liat-img{
+  width: 300px;
+  height: 300px;
+}
+
+.card-about-app:hover{
+  box-shadow: 0 30px 30px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+}
+

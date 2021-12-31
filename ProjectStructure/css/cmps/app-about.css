@@ -41,3 +41,7 @@
  .btn-about-app:hover,.a-about-app:hover {
     opacity: 0.7;
   }
+
+.card-about-app{
+  height: 62vh;
+}

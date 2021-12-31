@@ -1,4 +1,4 @@
-export function VideoPreview({ note, onClick}) {
+export function VideoPreview({ note, onClick,isEditMode}) {
     return (
             <div className = "video-player" onClick={() => onClick(note)}>
                 <h1>{note.info.title}</h1>

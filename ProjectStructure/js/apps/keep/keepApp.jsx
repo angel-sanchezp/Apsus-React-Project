@@ -2,7 +2,7 @@ import { notesService } from './services/note.service.js'
 import { NotesList } from './cmps/notes-list.jsx'
 import { NotesFilter } from './cmps/notes-filter.jsx'
 import { AddNote } from './cmps/add-note.jsx'
-// import { EditModal } from './cmps/edit-modal.jsx'
+import { EditModal } from './cmps/edit-modal.jsx'
 
 
 const { Link } = ReactRouterDOM
@@ -101,7 +101,7 @@ export class KeepApp extends React.Component {
                             onRemove={this.loadNotes}
                             editingNote={this.state.editingNote}/>
                     </div>
-                    {/* <div>{editingNote && <EditModal note={editingNote} editingNote={editingNote}/> }</div> */}
+                    <div>{editingNote && <EditModal note={editingNote}/> }</div>
                 </div>
             </section>
         )

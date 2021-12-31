@@ -1,7 +1,6 @@
-export function TodosPreview({ note, onClick }) {
+export function TodosPreview({ note, onClick, isEditMode }) {
     return (
-        
-        <div key={note.id} className="todo-card" onClick={() => onClick(note)}>
+        <div className="todo-card" onClick={() => onClick(note)}>
             <h1 className="card-label">{note.info.label}</h1>
             <ul className="todos">
                 {note.info.todos.map(todo => (
@@ -9,6 +8,5 @@ export function TodosPreview({ note, onClick }) {
                 ))}
             </ul>
         </div>
-        
     )
 }

@@ -28,7 +28,7 @@
     text-align: center;
   }
 
-  input#text-modal{
+  input#text-input{
     min-height: 300px;
     border: none;
     /* margin-top: 20px; */
