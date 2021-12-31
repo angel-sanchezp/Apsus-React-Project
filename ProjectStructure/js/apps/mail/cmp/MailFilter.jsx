@@ -32,7 +32,7 @@ export class MailFilter extends React.Component {
                     <input name="txt" value={txt} placeholder="Search Mail..." className="search-input" type="text" onChange={this.handleChange} />
                     </div>
                     <div className="mail-status-select">
-                    <select  className="select-filter-search "name="status" id="status" onChange={this.handleChange}>
+                    <select  className="select-filter-search-mail "name="status" id="status" onChange={this.handleChange}>
                         <option value="Inbox">Inbox</option>
                         <option value="unRead">UnRead</option>
                         <option value="read">Read</option>
