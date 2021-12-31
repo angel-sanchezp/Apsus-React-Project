@@ -21,9 +21,9 @@ export class NotesFilter extends React.Component {
 
     render() {
         return (
-            <form className="note-filter" onSubmit={this.onSubmitFilter}>
+            <form className="select-note-filter" onSubmit={this.onSubmitFilter}>
                 <label
-                    htmlFor="by-type">By type:</label>
+                    htmlFor="by-type">Filter by keep type:</label>
                   <select onChange={this.handleChange} name="type" id="type">
                         <option value="all">All</option> 
                         <option value="note-txt">text notes</option>
@@ -31,7 +31,7 @@ export class NotesFilter extends React.Component {
                         <option value="note-todos">todos</option>
                         <option value="note-video">videos</option>
                     </select>
-                <button>Filter</button>
+                <button className="btn-filter">Filter</button>
             </form>
         )
     }

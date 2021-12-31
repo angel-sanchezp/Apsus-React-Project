@@ -6,27 +6,122 @@
     cursor: pointer;
     text-align: center;
     color:black;
-    border-radius: 0.1rem;
-    padding: 1.5rem;
-    margin: 1rem;
-    box-shadow: 2px 2px rgb(160, 160, 160);
-    height: fit-content;
+    border-radius: 8px;
+    margin: 1.2rem;
+    border: 1px solid transparent;
+    break-inside: avoid-column;
+    background-color: white;
+    padding: 10px;
+    padding-bottom: 10px;
+   
 }
 
-.card :hover{
-    background-color: rgba(245, 245, 245, 0.747);
-    
+.card:hover{
+    box-shadow: 0 5px 10px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
 }
 
 .card img{
-    width: 200px;
+    width: 100%;
+}
+
+.card.todo-card{
+    text-align: left;
 }
 
 .play{
-    width: 250px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 .note-preview{
-    width: 33%;
+    break-inside: avoid-column;
+}
+
+.actions-container{
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+    width: 35px;
+    padding: 0;
+    margin: 0;
+ 
+    /* margin-top: 10px; */
+}
+
+.card:hover  .btn-remove {
+    display: block;
+}
+
+.card:hover  .btn-edit {
+    display: block;
+}
+
+.card:hover  .btn-send-mail {
+    display: block;
+}
+
+.btn-remove{
+    display: none;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.btn-edit{
+    display: none;
+    height: 100%;
+    width: 100%;
+    border: none;
+    background: none;
+    padding: 0;    
+}
+
+.btn-send-mail{
+    display: none;
+    height: 100%;
+    width: 100%;
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.btn-mail{
+    
+        font: bold 11px Arial;
+        text-decoration: none;
+        background-color: #EEEEEE;
+        color: #333333;
+        padding: 2px 6px 2px 6px;
+        border-top: 1px solid #CCCCCC;
+        border-right: 1px solid #333333;
+        border-bottom: 1px solid #333333;
+        border-left: 1px solid #CCCCCC;
+      
+}
+
+.select-note-filter{
+    border: none;
+    font-size: 1.2rem;
+}
+
+.option:hover{
+    background: silver;
+}
+
+.btn-filter{
+    width: 80px;
+    height: 20px;
+    background: black;
+    margin: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-filter:hover{
+    background: silver;
+    border: none;
 }

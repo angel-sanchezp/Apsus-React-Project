@@ -25,12 +25,10 @@ export class NotePreview extends React.Component {
     handleRemoveClick = (ev) => {
         notesService.removeNote(this.props.note.id)
         this.props.onRemove()
-        
     }
 
-
-    handleSendMail = () => {
-
+    sendMail =() =>{
+        console.log('send mail')
     }
 
     render(){
@@ -39,11 +37,13 @@ export class NotePreview extends React.Component {
         return (
             // <article onClick={() => onSelectNote(this.props.note)} className="note-preview"></article>
             <article  className="note-preview">
-                <PreviewComponent note={this.props.note} backroungColor={getRandomColor()}/>
-                <div className="actions-container">
-                    <button className="btn-remove" onClick={this.handleRemoveClick}>remove</button>
-                    
-                    
+                <div className="card">
+                    <PreviewComponent {...this.props} />
+                    <div className="actions-container">
+                        <button className="btn-remove" onClick={this.handleRemoveClick}><img src="https://static.thenounproject.com/png/1833346-200.png"/></button>
+                        <button className="btn-edit" onClick={this.props.onClick} editingNote={this.props.editingNote}><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg/1024px-Edit_icon_%28the_Noun_Project_30184%29.svg.png"/></button>
+                        {/* <button className="btn-send-mail" onClick={this.sendMail}><img src="https://static.thenounproject.com/png/1278312-200.png"/></button> */}
+                    </div>
                 </div>
             </article>
         )

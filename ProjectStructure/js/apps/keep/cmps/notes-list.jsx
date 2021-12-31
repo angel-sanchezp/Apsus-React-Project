@@ -1,10 +1,11 @@
 import { NotePreview } from './note-preview.jsx'
 
-export function NotesList({ notes = [], onSelectNote ,onRemove}) {
+export function NotesList({ notes = [], ...props}) {
+    
     return (
+        
         <section className="note-list">
-            {/* {notes.map(note => <NotePreview key={note.id} note={note} onSelectNote={onSelectNote} />)} */}
-            {notes.map(note => <NotePreview key={note.id} note={note} onRemove={onRemove}/>)}
+            {notes.map(note => <NotePreview key={note.id} note={note} {...props}/>)}
         </section>
     )
 }

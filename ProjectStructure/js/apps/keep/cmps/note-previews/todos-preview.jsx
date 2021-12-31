@@ -1,14 +1,14 @@
-export function TodosPreview({ note }) {
+export function TodosPreview({ note, onClick }) {
     return (
-        <div key={note.id} className="card todo-card">
+        
+        <div key={note.id} className="todo-card" onClick={() => onClick(note)}>
             <h1 className="card-label">{note.info.label}</h1>
-            <div className="todos">
+            <ul className="todos">
                 {note.info.todos.map(todo => (
-                    <div className="todo" key={todo.doneAt}>
-                        {todo.txt} , <span className="smaller">{todo.doneAt}</span>
-                    </div>
+                    <li className="todo" key={todo.doneAt}>{todo.txt}</li>
                 ))}
-            </div>
-        </div> 
+            </ul>
+        </div>
+        
     )
 }

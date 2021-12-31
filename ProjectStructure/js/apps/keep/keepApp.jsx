@@ -2,6 +2,8 @@ import { notesService } from './services/note.service.js'
 import { NotesList } from './cmps/notes-list.jsx'
 import { NotesFilter } from './cmps/notes-filter.jsx'
 import { AddNote } from './cmps/add-note.jsx'
+import { EditModal } from './cmps/edit-modal.jsx'
+
 
 const { Link } = ReactRouterDOM
 
@@ -12,13 +14,13 @@ export class KeepApp extends React.Component {
         filterBy: 'all',
         selectedNote: null,
         input: null,
-        type:'note-txt'
+        type:'note-txt',
+        editingNote: null
     }
 
     componentDidMount() {
         this.loadNotes()
     }
-
 
     loadNotes = () => {
         const { filterBy } = this.state
@@ -29,6 +31,7 @@ export class KeepApp extends React.Component {
 
     onSelectNote = (selectedNote) => {
         this.setState({ selectedNote })
+        console.log(selectedNote)
     }
 
     onUnSelectNote = (noteId) => {
@@ -46,8 +49,6 @@ export class KeepApp extends React.Component {
     onSetFilter = (filterBy) => {
         this.setState(prevState=>({ ...prevState, filterBy }), this.loadNotes)
     }
-
-    
 
     onSetInput = (value) => {
         this.setState(prevState=>({ ...prevState, input:value }))
@@ -77,17 +78,30 @@ export class KeepApp extends React.Component {
         }
     }
 
-   
+    handleNoteClick = (note) => {
+        console.log('note clicked')
+        this.setState(prevState=>({ 
+            ...prevState, 
+            editingNote: note
+        }))
+    }
 
- 
     render(){
-        const {notes} = this.state
+        const {notes , editingNote } = this.state
+        console.log(this.state.editingNote)
         return (
             <section className="keep-up-container">
                 <div className="keep-margins">
+                <AddNote onSetInput={this.onSetInput} loadNotes={this.loadNotes}/>
                 <NotesFilter filterBy={this.state.filterBy} onSetFilter={this.onSetFilter}/>
-                <AddNote  onSetInput={this.onSetInput} loadNotes={this.loadNotes}/>
-                    <div className="notes-container"><NotesList notes={this.notesToDisplay} onSelectNote={this.onSelectNote} onRemove={this.loadNotes}/></div>
+                    <div className="notes-container">
+                        <NotesList notes={this.notesToDisplay}
+                            onClick={this.handleNoteClick}
+                            onSelectNote={this.onSelectNote}
+                            onRemove={this.loadNotes}
+                            editingNote={this.state.editingNote}/>
+                    </div>
+                    {/* <div>{editingNote && <EditModal note={editingNote} editingNote={editingNote}/> }</div> */}
                 </div>
             </section>
         )

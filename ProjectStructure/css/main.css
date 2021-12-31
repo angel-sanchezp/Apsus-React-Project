@@ -19,3 +19,8 @@
 /* Keep */
 @import "./apps/keep/main-kepp.css";
 @import "./apps/keep/note-preview.css";
+@import "./apps/keep/modal-preview.css";
+
+body{
+    font-family: Tahoma, sans-serif ;
+}

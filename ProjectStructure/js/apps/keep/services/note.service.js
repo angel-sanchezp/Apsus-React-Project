@@ -18,15 +18,15 @@ const gNotes = [
      type: "note-txt",
      isPinned: true,
      info: {
-     txt: "Fullstack Me Baby!"
+     txt: "don't forget to call the resturant and ask about friday"
      }
     },
     {
      id: "n102",
      type: "note-img",
      info: {
-     url: "https://op2s.co.il/wp-content/uploads/2020/03/google-logo.png",
-     title: "Bobi and Me"
+     url: "https://www.regamatok-elite.co.il/wp-content/uploads/2021/05/%D7%A9%D7%9C%D7%91%D7%99%D7%9D-2.jpg",
+     title: "Cake recipe"
      },
      style: {
      backgroundColor: "#00d"
@@ -36,10 +36,12 @@ const gNotes = [
      id: "n103",
      type: "note-todos",
      info: {
-     label: "Get my stuff together",
+     label: "groceries",
      todos: [
-     { txt: "Driving liscence", doneAt: null },
-     { txt: "Coding power", doneAt: 187111111 }
+     { txt: "milk", doneAt: null },
+     { txt: "bananas", doneAt: 187111111 },
+     { txt: "cofee", doneAt: 187111111 },
+     { txt: "suger", doneAt: 187111111 }
      ]
      }
     },

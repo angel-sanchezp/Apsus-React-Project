@@ -11,11 +11,15 @@
 .keep-input-text {
     padding: 0px;
     margin-top: 8px;
-    /* margin-right: 16px; */
+    margin: 0;
     font-size: 17px;
     width: 100%;
-    height: 50px;
-    border: 2px solid rgba(204, 204, 204, 0.947);
+    height: 100%;
+    border: none;
+    border-left: 2px solid rgba(204, 204, 204, 0.947); 
+    border-top: 2px solid rgba(204, 204, 204, 0.947);
+    border-bottom: 2px solid rgba(204, 204, 204, 0.947);
+
   }
 
 .input-text-container{
@@ -29,11 +33,12 @@
 }
 
 .add-note-box{
+    margin-top: 10px;
     width: 100%;
     display: flex;
     height: 50px;
     align-items: center;
-    border: 2px solid rgba(204, 204, 204, 0.947);
+    
     
 }
 
@@ -44,7 +49,7 @@
     
 }
 section .note-list{
-    display: flex;
+    columns:3;
     flex-wrap: wrap;
     margin-top: 5%;
     height: fit-content;
@@ -57,17 +62,22 @@ section .note-list{
     height: 50px;
     align-items: center;
     background-color: #ffffff;
+    border-right: 2px solid rgba(204, 204, 204, 0.947); 
+    border-top: 2px solid rgba(204, 204, 204, 0.947);
+    border-bottom: 2px solid rgba(204, 204, 204, 0.947);
     
 }
 
 .btn-add-txt{
     width: 20px;
-    height: 18px;
+    height: 20px;
+    margin: 4px;
 
 }
 
 .btn-add-video{
-    width: 40px;
-    height: 20px;
+    width: 20px;
+    height: 25px;
+    margin: 6px;
 }
 
