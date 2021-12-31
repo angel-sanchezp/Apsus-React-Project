@@ -2,7 +2,7 @@ import { notesService } from './services/note.service.js'
 import { NotesList } from './cmps/notes-list.jsx'
 import { NotesFilter } from './cmps/notes-filter.jsx'
 import { AddNote } from './cmps/add-note.jsx'
-import { EditModal } from './cmps/edit-modal.jsx'
+// import { EditModal } from './cmps/edit-modal.jsx'
 
 
 const { Link } = ReactRouterDOM

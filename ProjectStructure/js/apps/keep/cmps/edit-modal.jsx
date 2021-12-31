@@ -26,7 +26,7 @@ export class EditModal extends React.Component {
             </div>
             
         )
-        )
+        
     }
     
 }
