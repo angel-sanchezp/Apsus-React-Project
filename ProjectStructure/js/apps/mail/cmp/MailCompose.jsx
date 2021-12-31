@@ -1,58 +1,52 @@
 import { mailService } from "../services/mail.service.js";
-import {eventBusService} from "../../../services/event-bus.service.js"
+import { eventBusService } from "../../../services/event-bus.service.js"
 const { Link } = ReactRouterDOM
-export class MailCompose extends React.Component{
+export class MailCompose extends React.Component {
 
-   state={
+  state = {
     mail: {
-        subject: "",
-        body: "",
-        to: "",
-        from: "From: diego@hotmail.com",
-        isDrafted:"",
-      },
-   }
+      subject: "",
+      body: "",
+      to: "",
+      from: "From: diego@hotmail.com",
+      isDrafted: "",
+    },
+  }
+
+  componentDidMount() {
+    const urlSearchParams = new URLSearchParams(this.props.location.search);
+    const newBody = urlSearchParams.get('body')
+    console.log(newBody)
+    if (newBody) {
+      this.setState({ mail: { ...this.state.mail, body: newBody } })
+      console.log(this.state.mail)
+    }
+  }
 
 
-   handleChange = ({ target }) => {
+  handleChange = ({ target }) => {
     const field = target.name
     const value = target.value
     if (field === "from") return
-    this.setState({ mail: { ...this.state.mail, [field]: value } })
-  }
-
- 
-  get searchParam() {
-    const urlSearchParams = new URLSearchParams(this.props.location.search);
-    return urlSearchParams.get('body')
-  }
-
-
-  get notefromKeep() {
-    const body = this.searchParam
-    console.log(body)
-    if(body){
-      return body
-    }
-     return this.state.mail.body
+    this.setState({ mail: { ...this.state.mail, [field]: value} })
   }
 
 
 
-  onDraft=()=>{
-    const {mail}=this.state;
+
+  onDraft = () => {
+    const { mail } = this.state;
     if (!mail.subject || !mail.body) return
-    mailService.draftMail(this.state.mail).then(()=>{
+    mailService.draftMail(this.state.mail).then(() => {
       this.onBack();
     })
-
   }
 
   onSendMail = () => {
-    const {mail} = this.state;
+    const { mail } = this.state;
     if (!mail.subject || !mail.to) return
     mailService.sendMail(this.state.mail).then(() => {
-      eventBusService.emit('user-msg',{txt:'Mail was saved!',type:'succes'})
+      eventBusService.emit('user-msg', { txt: 'Mail was saved!', type: 'success' })
       this.onBack()
     })
   }
@@ -63,26 +57,20 @@ export class MailCompose extends React.Component{
   }
 
 
-cleanForm = () => {
-    this.setState({ mail: { subject: '', body: '', to: '',from:'' } })
-}
+  cleanForm = () => {
+    this.setState({ mail: { subject: '', body: '', to: '', from: '' } })
+  }
 
-render() {
+  render() {
     const { mail } = this.state
     return (
       <section className="mail-compose main-layout">
-        <div onClick={this.onBack}>
-          <div className="go-back-text">Go Back</div>
-        </div>
         <div className="mail-compose-container">
           <div className="mail-compose-top">
             <h1>New Mail</h1>
-            <div className="new-mail-btn">
-              <Link to={`/notes/?title=${mail.subject}&txt=${mail.body}`}><img src="./img/icons/icon-note.png" className="to-note-icon"/></Link>
-              
-              <button  className="send-btn" onClick={this.onSendMail}><img src="./img/icons/send-icon.png"/></button>
-             
-            </div>
+            <div onClick={this.onBack}>
+          <div className="go-back-text">x</div>
+        </div>
           </div>
           <div className="mail-compose-header">
             <form className="mail-compose-header-form">
@@ -124,19 +112,23 @@ render() {
             <form>
               <textarea
                 onChange={this.handleChange}
-                value={this.notefromKeep}
+                value={mail.body}
                 name="body"
                 type="textarea"
                 placeholder="Email Content..."
               />
             </form>
           </div>
+        <div className="options-mail-btns">
+              <Link to={`/notes/?title=${mail.subject}&txt=${mail.body}`}><img src="./img/icons/icon-note.png" className="to-note-icon" /></Link>
+              <button className="send-btn" onClick={this.onSendMail}><img src="./img/icons/send-icon.png" /></button>
+              <button className="send-btn" onClick={this.onDraft}><img src="./img/icons/draft-icon.png" /></button>
+
+            </div>
         </div>
       </section>
     )
-    }
+  }
 
 }
 
-
-// onClick={this.onDraft}

@@ -65,7 +65,9 @@ export class MailDetails extends React.Component {
                     </div>
                     <div className="mail-content-body">
                         <p>{mail.body}</p>
-                        <button  className="delete-mail-details" onClick={this.onDeleteMail}>Trash</button>
+                        <button  className="delete-mail-details" onClick={this.onDeleteMail}>
+                        <img src="../img/icons/trash-icon.png" />
+                            Trash</button>
                     </div>
                 </div>
                 <div onClick={this.onBack} className="go-back-container">

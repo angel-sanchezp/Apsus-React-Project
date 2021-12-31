@@ -1,10 +1,10 @@
 import { Home } from './ProjectStructure/js/pages/app-home.jsx'
 import { About } from './ProjectStructure/js/pages/app-about.jsx'
+import {BookDetails} from './ProjectStructure/js/apps/book/pages/BookDetails.jsx'
 import { BookApp } from './ProjectStructure/js/apps/book/pages/BookApp.jsx'
 import { KeepApp } from './ProjectStructure/js/apps/keep/keepApp.jsx'
 import { MailApp } from './ProjectStructure/js/apps/mail/pages/MailApp.jsx'
 import { MailDetails } from './ProjectStructure/js/apps/mail/pages/MailDetails.jsx'
-// import { MailCompose } from './ProjectStructure/js/apps/mail/cmp/MailCompose.jsx'
 
 
 
@@ -26,9 +26,9 @@ export function App() {
         <main>
           <Switch>
             <Route component={MailDetails} path="/mail/details/:mailId" />
+            <Route component={BookDetails} path="/book/:bookId" />
             <Route component={BookApp} path="/book" />
             <Route component={KeepApp} path="/notes" />
-            {/* <Route component={MailCompose} path="/mail/newMail" /> */}
             <Route component={MailApp} path="/mail" />
             <Route component={About} path="/about" />
             <Route component={Home} path="/" />

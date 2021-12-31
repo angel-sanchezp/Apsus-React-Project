@@ -15,8 +15,8 @@
   }
   
   .mail-content-head {
-    background-color: #292929;
-    color: #f0eeee;
+    background-color: #b1afaf8c;
+     color: #383838;
     padding: 0.2rem;
     display: flex;
     flex-direction: column-reverse;
@@ -57,36 +57,60 @@
   
   .go-back-container {
     display: flex;
-    align-items: flex-end;
-  }
-  
-  .go-back-text {
-    font-family: Lato-Bold;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-  
-  .go-back {
+    justify-content: center;
+    align-items: center;
+    width: 14rem;
+    height: 4rem;
     margin-top: 2rem;
-    align-self: flex-start;
-    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: rgba(29, 28, 28, 0.842);
+    background-color: whitesmoke;
+    border: none;
+    border-radius: 1.5rem;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
     cursor: pointer;
+    outline: none;
+  }
+
+  .go-back-container:hover{
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
   }
   
   .delete-mail-details {
-    color: #e34d4d;
-    position: absolute;
-    bottom: 3rem;
-    right: 0;
-    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 14rem;
+    height: 4rem;
+    margin-top: 2rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: rgba(29, 28, 28, 0.842);
+    background-color: whitesmoke;
+    border: none;
+    border-radius: 1.5rem;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
     cursor: pointer;
-    opacity: 0.5;
-    transition: opacity 0.4s;
-    font-size: 1.5rem;
+    outline: none;
   }
   
   .delete-mail-details:hover {
-    opacity: 1;
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
   }
   
   @media (min-width: 620px) {

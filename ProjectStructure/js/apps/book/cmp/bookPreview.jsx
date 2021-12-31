@@ -16,7 +16,7 @@ export function BookPreview({ book }) {
 
 
     return (
-        <Link to={`/book/${book.id}`}>
+        <Link to={`/book/${book.id}`}  style={{ textDecoration: 'none' }}>
             <div className="book-card">
                 <img src={book.thumbnail} />
                 <label>Title:{book.title}</label>

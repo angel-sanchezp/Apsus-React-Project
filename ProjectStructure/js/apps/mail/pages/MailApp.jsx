@@ -29,7 +29,6 @@ export class MailApp extends React.Component {
 
 
     onSetFilter = (filterBy) => {
-        console.log(filterBy)
         this.setState(prevState => ({ ...prevState, filterBy }), this.loadMails)
     }
 

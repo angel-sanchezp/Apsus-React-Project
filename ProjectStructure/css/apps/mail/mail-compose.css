@@ -3,17 +3,31 @@
     justify-content: center;
     flex-direction: column;
     height: 100%;
+    background-color: rgba(245, 245, 245, 0.637);
     margin-bottom: 2rem;
+  }
+
+  .options-mail-btns{
+    display: flex;
+    height: 54px;
+    padding: -78px 0 16px;
+    align-items: center;
+    padding-left: 20px;
   }
   
   .mail-compose-container {
-    border: 1px solid #292929;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    width: 100%;
+    position: absolute;
+    z-index: 5;
+    width: 70%;
+    margin-top: 872px;
+    margin-left: -215px;
+    min-height: 40rem;
+    background-color: whitesmoke;
+
   }
   
   .mail-compose-header-form {
-    /* width: 50rem; */
     display: flex;
     flex-direction: column;
   }
@@ -31,18 +45,18 @@
   
   .mail-compose-body textarea {
     width: 100%;
-    min-height: 30rem;
+    min-height:30rem;
     /* min-height: 100%; */
     border: none;
-    resize: none;
+    /* resize: none; */
     font-size: 1.2rem;
-    outline: none;
+    /* outline: none; */
     padding: 0.5rem;
   }
   
   .mail-compose-top {
     /* width: 50rem; */
-    background-color: #292929;
+    background-color: #b1afaf8c;
     color: #f0eeee;
     padding: 0.5rem;
     display: flex;
@@ -56,38 +70,14 @@
     padding: 0;
   }
   
-  .go-back-container-compose {
-    display: flex;
-    margin-bottom: 2rem;
-    align-items: flex-end;
-  }
-  
-  .go-back {
-    align-self: flex-start;
-    font-size: 1.3rem;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.3s;
-  }
-  
-  .go-back:hover {
-    opacity: 1;
-  }
-  
-  .new-mail-send-btn, .to-note-icon {
-    color: #f2c16b;
+  .go-back-text{
     font-size: 1.5rem;
     cursor: pointer;
-    opacity: 0.8;
-    transition: opacity 0.3s;
   }
-
+ 
   .send-btn{
     cursor: pointer;
     border: none;
-    background-color: #292929;  
+    background-color:transparent;  
   }
   
-  .new-mail-send-btn:hover, .to-note-icon:hover {
-    opacity: 1;
-  }

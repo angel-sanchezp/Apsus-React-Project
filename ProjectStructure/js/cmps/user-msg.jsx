@@ -36,10 +36,23 @@ export class UserMsg extends React.Component {
     render() {
         const { msg } = this.state
         if (!msg) return <React.Fragment></React.Fragment>
-        return <div className={`user-msg ${msg.type}`}>
+        
+        if (msg.type === 'success') {
+            return <div className={`user-msg ${msg.type}`}>
+                <button onClick={this.onCloseMsg}>&times;</button>
+                <img src="../../img/icons/succes-icon.png" />
+                <h2>{msg.txt}</h2>
+            </div>
+        } else if (msg.type === 'danger') {
+            return <div className={`user-msg ${msg.type}`}>
             <button onClick={this.onCloseMsg}>&times;</button>
+            <img src="../../img/icons/danger-icon.png" />
             <h2>{msg.txt}</h2>
         </div>
+
+        }
     }
+
+
 
 } 
