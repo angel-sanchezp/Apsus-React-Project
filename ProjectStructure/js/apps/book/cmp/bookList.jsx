@@ -1,4 +1,4 @@
-import { BookPreview } from '../cmp/BookPreview.jsx'
+import { BookPreview } from '../cmp/bookPreview.jsx'
 
 export function BookList({books}) {
     // console.log(books)
