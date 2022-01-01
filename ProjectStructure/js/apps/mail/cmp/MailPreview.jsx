@@ -40,34 +40,37 @@ export class MailPreview extends React.Component {
 
     render() {
         const { mail } = this.props;
-        const {isShowOptions}= this.state;
+        const { isShowOptions } = this.state;
         return (
             // <Link to={`/mail/details/${mail.id}`} style={{ textDecoration: 'none' }}>
-                <section  onMouseOver={this.onShowOptions} onMouseLeave={this.onHideOptions} >
-                    <section className={`mail-preview ${(mail.isRead) ? 'read' : ''}`} onMouseOver={this.onShowOptions}>
-
-                        <div className="email-content">
-                            <h3>{mail.from}</h3>
-                            <span className="mail-subj">{mail.subject}</span>
-                            <span className="mail-body">
-                            <LongText text = {mail.body} isLongtxtShown = {mail.body.length > 100 ? true : false} maxLength = '100'/>
-                            </span>
-                        </div>
-                        {isShowOptions ?
-                            <div className="options-btn">
-                                <Link to={`/mail/newMail/?subject=${mail.subject}&body=${mail.body}`}>
-                                  <button><i className="fas fa-reply"></i></button>
-                                  </Link>
-                                <button onClick={this.onDeleteMail}><i className="fas fa-trash-alt"></i></button>
-                                <Link to={`/mail/details/${mail.id}`} style={{ textDecoration: 'none' }}>
-                                <button><i className="fas fa-expand"></i></button>
-                                </Link >
-                            </div>
-                            : <span>{utilService.getFormattedDate(mail.sentAt)}</span>}
-                </section>
-
+            <section className="mail-preview-conteiner" onMouseOver={this.onShowOptions} onMouseLeave={this.onHideOptions} >
+                <section className={`mail-preview ${(mail.isRead) ? 'read' : ''}`}>
+                    <div className="column-mail mail-from">
+                        <h4>{mail.from}</h4>
+                    </div>
+                    <div className="column-mail mail-subj">
+                    <span>{mail.subject}</span>
+                    </div>
+                    <div className="column-mail  mail-body">
+                    <span>
+                        <LongText text={mail.body} isLongtxtShown={mail.body.length > 10 ? true : false} maxLength='30' />
+                    </span>
+                    </div>
+                {isShowOptions ?
+                    <div className="options-btn">
+                        <Link to={`/mail/newMail/?subject=${mail.subject}&body=${mail.body}`}>
+                            <button><i className="fas fa-reply"></i></button>
+                        </Link>
+                        <button onClick={this.onDeleteMail}><i className="fas fa-trash-alt"></i></button>
+                        <Link to={`/mail/details/${mail.id}`} style={{ textDecoration: 'none' }}>
+                            <button><i className="fas fa-expand"></i></button>
+                        </Link >
+                    </div>
+                    : <span>{utilService.getFormattedDate(mail.sentAt)}</span>}
             </section>
-        //    </Link >
+
+            </section >
+            //    </Link >
 
 
         )

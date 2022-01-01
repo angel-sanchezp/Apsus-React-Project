@@ -12,6 +12,7 @@
 
 /* MAIL */
 @import "./apps/mail/mail-app.css";
+@import "./apps/mail/mail-filter.css";
 @import "./apps/mail/mail-list.css";
 @import "./apps/mail/mail-details.css";
 @import "./apps/mail/mail-compose.css";
@@ -25,5 +26,6 @@
 
 body{
     font-family: Tahoma, sans-serif ;
-    height: 100vh;
+    /* height: 100vh; */
+    min-height: 100%;
 }

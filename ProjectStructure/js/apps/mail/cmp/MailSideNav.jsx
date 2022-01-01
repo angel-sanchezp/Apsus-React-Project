@@ -24,8 +24,11 @@ export class MailSideNav extends React.Component {
 
 
 
+
+
   render() {
     const { status } = this.state.filterBy
+
 
     return (
       <div className={`mail-side-nav ${"active-side-nav"}`}>
