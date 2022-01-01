@@ -31,10 +31,21 @@
 .book-filter{
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: space-around;
 }
 
 .input-book-filter{
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+@media(min-width:830px){
+    
+.book-filter{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+}
 }
