@@ -13,7 +13,8 @@ export const mailService = {
     deleteMail,
     sendMail,
     sortBy,
-    draftMail
+    draftMail,
+    updateMail
 }
 
 var gMails = [
@@ -240,6 +241,12 @@ function _getFilteredMails(mails, filterBy) {
                 return mail.status === "draft"
             })
             return Promise.resolve(mailsToShow)
+        case "favorite":
+            mailsToShow = mails.filter((mail) => {
+                return mail.isStarred
+            })
+            // console.log(mailsToShow);
+            return Promise.resolve(mailsToShow)
     }
 }
 
@@ -302,6 +309,15 @@ function sendMail(mail, isDrafted=false) {
     mails.unshift(newMail)
     _saveMailsToStorage(mails);
     return Promise.resolve()
+}
+
+function updateMail(mailId, star) {
+    const mails = _loadMailsFromStorage();
+    const mail = mails.find(mail => mail.id === mailId)
+    const value = (mail[star] === 'true') ? 'false' : 'true'
+    mail[star] = value
+    _saveMailsToStorage(mails)
+    return Promise.resolve(mail)
 }
 
 

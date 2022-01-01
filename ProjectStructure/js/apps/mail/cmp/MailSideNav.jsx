@@ -78,6 +78,15 @@ export class MailSideNav extends React.Component {
           <img src="img/icons/draft-icon.png" />
           Draft
         </div>
+        <div
+          value="favorite"
+          onClick={() => {
+            this.setFilter("favorite")
+          }}
+          className={`${status === "favorite" ? "active" : ""} side-nav`}>
+          <img src="img/icons/fav-icon.png" />
+          Favorite
+        </div>
       </div>
     )
   }

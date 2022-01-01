@@ -17,7 +17,7 @@ export class MailCompose extends React.Component {
     const urlSearchParams = new URLSearchParams(this.props.location.search);
     const newSubj= urlSearchParams.get('subject')
     const newBody = urlSearchParams.get('body')
-    console.log(newBody)
+    // console.log(newBody)
     if (newBody) {
       this.setState({ mail: { ...this.state.mail, body: newBody,subject:newSubj } })
       // console.log(this.state.mail)
@@ -50,7 +50,7 @@ export class MailCompose extends React.Component {
     mailService.sendMail(this.state.mail).then(() => {
       eventBusService.emit('user-msg', { txt: 'Mail was saved!', type: 'success' })
       this.onBack();
-      this.props.loadMails();
+      // this.props.onLoadMails();
     })
   }
 
