@@ -1,4 +1,7 @@
-
+.book-app{
+ background-image: url('https://previews.123rf.com/images/wamsler/wamsler1406/wamsler140600010/29122906-row-of-books-grungy-background-free-copy-space.jpg');
+ text-align: center;
+}
 
 .book-card{
     display: flex;
@@ -22,4 +25,16 @@
 
 .book-card img{
     width: 70%;
+}
+
+
+.book-filter{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.input-book-filter{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
