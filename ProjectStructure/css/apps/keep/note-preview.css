@@ -54,6 +54,7 @@
 
 .note-preview{
     break-inside: avoid-column;
+    padding-bottom: 8px;
 }
 
 .actions-container{
