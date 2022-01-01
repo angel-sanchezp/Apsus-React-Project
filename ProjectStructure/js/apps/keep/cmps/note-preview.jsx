@@ -36,7 +36,7 @@ export class NotePreview extends React.Component {
                     <PreviewComponent {...this.props} />
                     <div className="actions-container">
                         <img className="action-btn remove" onClick={this.handleRemoveClick} src="https://static.thenounproject.com/png/1833346-200.png"/>
-                        <img className="action-btn edit" onClick={this.props.onClick} src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg/1024px-Edit_icon_%28the_Noun_Project_30184%29.svg.png"/>
+                        <img className="action-btn edit" onClick={() => this.props.onClick(this.props.note)} src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg/1024px-Edit_icon_%28the_Noun_Project_30184%29.svg.png"/>
                         <ColorInput note={this.props.note} onChangeColor={this.props.onColorChange}/>
                         <MailNote note={this.props.note}/>
                         {/* <button className="btn-send-mail" onClick={this.sendMail}><img src="https://static.thenounproject.com/png/1278312-200.png"/></button> */}
