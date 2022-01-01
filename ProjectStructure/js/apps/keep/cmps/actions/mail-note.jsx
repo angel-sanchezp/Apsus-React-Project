@@ -29,7 +29,7 @@ export function MailNote({ note }) {
     const mailContent = getMailContent(note)
     return (
         <Link to={`/mail/newMail?body=${mailContent.body}&subject=${mailContent.title}`}>
-            <img className="action-btn mail" src="../../../../../../img/icons/mail-icon.png"/>
+            <img className="action-btn mail" src="img/icons/mail-icon.png"/>
         </Link>
     )
 }
