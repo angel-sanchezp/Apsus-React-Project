@@ -96,5 +96,7 @@ section .note-list{
     }header.app-header {
         margin: 0px;
         padding: 5px;
+    }.about-app{
+        flex-direction: column;
     }
 }

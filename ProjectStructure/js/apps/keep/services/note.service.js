@@ -77,7 +77,7 @@ const gNotes = [
             title: "a place to visit on my next trip"
         },
         style: {
-            backgroundColor: '#cdff9b'
+            backgroundColor: '#b4f8c8'
         }
     },
     {
