@@ -34,9 +34,9 @@ export class TextEditor extends React.Component {
         return (
             <div className = "card-txt">
                 <form className= "text-modal" onSubmit={this.handleSubmit}>
-                    <textarea type="text" id="title-input" name="title" value= {title || ''} placeholder="Enter your title" onChange={this.handleChange}/>
-                    <textarea type="text" id="text-input" name="txt" value={txt || ''} placeholder="Enter your note" onChange={this.handleChange} />
-                    <input type="submit" value="save" className="btn-save" />
+                    <textarea  className="note-title-input" type="text" id="title-input" name="title" value= {title || ''} placeholder="Enter your title" onChange={this.handleChange}/>
+                    <textarea className="note-text-input" type="text" id="text-input" name="txt" value={txt || ''} placeholder="Enter your note" onChange={this.handleChange} />
+                    <input className="btn modal-save" type="submit" value="save" className="btn-save" />
                 </form>
             </div> 
         ) 

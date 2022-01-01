@@ -85,12 +85,12 @@ export class TodosEditor extends React.Component {
                 <form className= "todo-modal" onSubmit={this.handleSubmit}>
                     <textarea type="text" id="title-input" name="label" value= {label || ''} placeholder="Enter your title" onChange={this.handleChange}/>
                     {todos.map((todo, idx)=> (
-                        <React.Fragment key={`frag-${idx}`}>
-                        <input type="text" key={idx} value={todo.txt || ''} placeholder="Enter your todo" onChange={(ev) => this.handleTodoChange(ev, idx)} />
+                        <div className="todo" key={`frag-${idx}`}>
+                        <input className="note-todo-input" type="text" key={idx} value={todo.txt || ''} placeholder="Enter your todo" onChange={(ev) => this.handleTodoChange(ev, idx)} />
                         <img key={`img-${idx}`} src="https://static.thenounproject.com/png/1833346-200.png" className="btn-todo-remove" onClick={()=> this.removeTodo(idx)}/>
-                        </React.Fragment>
+                        </div>
                     ))}
-                    <input type="submit" value="save" className="btn-save" />
+                    <input className="btn modal-save" type="submit" value="save" className="btn-save" />
                 </form>
                 <button onClick={this.addTodo}>+</button>
             </div> 

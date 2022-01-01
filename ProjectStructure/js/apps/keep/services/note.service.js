@@ -37,7 +37,7 @@ const gNotes = [
         id: "n103",
         type: "note-todos",
         info: {
-            label: "groceries",
+            label: "groceries 🛒",
             todos: [
                 { txt: "milk", doneAt: null },
                 { txt: "bananas", doneAt: 187111111 },
@@ -51,10 +51,43 @@ const gNotes = [
         type: "note-video",
         info: {
             url: "BapcpzI-7l8",
-            title: "good song for my wedding"
+            title: "good song for my wedding 👰🏽"
         },
         style: {
-            backgroundColor: '#adffef'
+            
+            backgroundColor: '#dcbbff'
+        }
+    },
+    {
+        id: "n106",
+        type: "note-img",
+        info: {
+            url: "https://ubject.co.il/wp-content/uploads/LAGOON-GREEN-1.jpg",
+            title: "couch for my new home"
+        },
+        style:{
+            backgroundColor: '#FBE7C6'
+        }
+    },
+    {
+        id: "n106",
+        type: "note-img",
+        info: {
+            url: "https://www.ytravelblog.com/wp-content/uploads/2019/04/valley-of-fire-state-park-nevada-17.jpg",
+            title: "a place to visit on my next trip"
+        },
+        style: {
+            backgroundColor: '#cdff9b'
+        }
+    },
+    {
+        id: "n106",
+        type: "note-txt",
+        info: {
+            title: "Lior & Asaf Wedding 26.05 💍"
+        },
+        style: {
+            backgroundColor: '#FFAEBC'
         }
     },
     {
@@ -65,15 +98,7 @@ const gNotes = [
             title: "good song"
         },
         style: {
-            backgroundColor: '#cdff9b'
-        }
-    },
-    {
-        id: "n106",
-        type: "note-img",
-        info: {
-            url: "https://ubject.co.il/wp-content/uploads/LAGOON-GREEN-1.jpg",
-            title: "couch for my new home"
+            backgroundColor: '#adffef'
         }
     }
 

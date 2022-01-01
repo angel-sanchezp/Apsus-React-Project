@@ -33,9 +33,9 @@ export class ImgEditor extends React.Component {
         return (
             <div className = "card-img">
                  <form className= "img-modal" onSubmit={this.handleSubmit}>
-                    <textarea type="text" id="title-input" name="title" value= {title || ''} placeholder="Enter your title" onChange={this.handleChange}/>
-                    <input type="text" id="img-input" name="url" value={url || ''} placeholder="Enter img url" onChange={this.handleChange} />
-                    <input type="submit" value="save" className="btn-save" />
+                    <textarea className="note-title-input" type="text" id="title-input" name="title" value= {title || ''} placeholder="Enter your title" onChange={this.handleChange}/>
+                    <input className="note-url-input" type="text" id="img-input" name="url" value={url || ''} placeholder="Enter img url" onChange={this.handleChange} />
+                    <input className="btn-modal-save" type="submit" value="save" className="btn-save" />
                 </form>
             </div> 
         ) 
