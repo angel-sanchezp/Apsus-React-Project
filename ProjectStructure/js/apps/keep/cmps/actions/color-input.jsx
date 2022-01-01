@@ -12,6 +12,11 @@ export class ColorInput extends React.Component {
         }))
     }
 
+    handleChangeColor = (color) => {
+        this.toggleColorsMenu();
+        this.props.onChangeColor(this.props.note, color)
+    }
+
     render() {
         const { toggleMenu } = this.state
 
@@ -22,7 +27,7 @@ export class ColorInput extends React.Component {
                     <h4>Pick a color:</h4>
                     {colors.map(color => {
                         return <div
-                            onClick={() => this.props.onChangeColor(this.props.note, color)}
+                            onClick={() => this.handleChangeColor(color)}
                             style={{ backgroundColor: color }}
                             key={color}
                             className="color-value">

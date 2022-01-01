@@ -24,7 +24,6 @@ export class TodosEditor extends React.Component {
         }))
     }
 
-
     handleTodoChange = (ev, idx) =>{
         const value = ev.target.value 
         const todos = this.state.note.info.todos
@@ -75,6 +74,22 @@ export class TodosEditor extends React.Component {
         }))
     }
 
+    handleTodoCheck = (ev, idx) => {
+        const isChecked = ev.target.checked
+        const todos = this.state.note.info.todos
+        todos[idx].doneAt = isChecked ? Date.now() : null
+        this.setState((prevState) => ({
+            ...prevState, 
+            note: {
+                ...prevState.note,
+                info: {
+                    ...prevState.note.info,
+                    todos
+                }
+            }
+        }))
+    }
+
 
     render(){
         const { note } = this.state
@@ -86,13 +101,14 @@ export class TodosEditor extends React.Component {
                     <textarea type="text" id="title-input" name="label" value= {label || ''} placeholder="Enter your title" onChange={this.handleChange}/>
                     {todos.map((todo, idx)=> (
                         <div className="todo" key={`frag-${idx}`}>
-                        <input className="note-todo-input" type="text" key={idx} value={todo.txt || ''} placeholder="Enter your todo" onChange={(ev) => this.handleTodoChange(ev, idx)} />
-                        <img key={`img-${idx}`} src="https://static.thenounproject.com/png/1833346-200.png" className="btn-todo-remove" onClick={()=> this.removeTodo(idx)}/>
+                            <input type="checkbox" name="marked" defaultChecked={!!todo.doneAt} onChange={(ev) => this.handleTodoCheck(ev, idx)}/>
+                            <input className="note-todo-input" type="text" key={idx} value={todo.txt || ''} placeholder="Enter your todo" onChange={(ev) => this.handleTodoChange(ev, idx)} />
+                            <img key={`img-${idx}`} src="https://static.thenounproject.com/png/1833346-200.png" className="btn-todo-remove" onClick={()=> this.removeTodo(idx)}/>
                         </div>
                     ))}
+                    <input type="button" onClick={this.addTodo} value="+"/>
                     <input className="btn modal-save" type="submit" value="save" className="btn-save" />
                 </form>
-                <button onClick={this.addTodo}>+</button>
             </div> 
         ) 
     }

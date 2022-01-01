@@ -8,7 +8,6 @@ export const notesService = {
     updateNote,
     addNote,
     getNoteById,
-    
 }
 
 const KEY = 'NotesDB'
@@ -131,13 +130,9 @@ function updateNote(note){
     return Promise.resolve(note)
 }
 
-
-
-
-
-function addNote(type, info) {
+function addNote(type, info, style) {
     var notes = _loadNotesFromStorage()
-    var note = _createNote(type, info)
+    var note = _createNote(type, info, style)
     notes = [note, ...notes]
     _saveNotesToStorage(notes);
     return Promise.resolve(note)
@@ -147,15 +142,15 @@ function removeNote(noteId) {
     let notes = _loadNotesFromStorage()
     notes = notes.filter(note => note.id != noteId)
     _saveNotesToStorage(notes);
-
 }
 
-function _createNote(type, info) {
+function _createNote(type, info, style = {}) {
     return {
         id: utilService.makeId(),
         type: type,
-        isPinned: true,
-        info
+        isPinned: false,
+        info,
+        style
     }
 }
 
@@ -166,9 +161,6 @@ function getNoteById(noteId) {
     })
     return Promise.resolve(note)
 }
-
-
-
 
 function _saveNotesToStorage(notes) {
     storageService.saveToStorage(KEY, notes)

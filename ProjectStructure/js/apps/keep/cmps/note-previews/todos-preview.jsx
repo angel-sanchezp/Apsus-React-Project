@@ -3,13 +3,16 @@ export function TodosPreview({ note, onClick }) {
     const todosText = todos.map(curr => curr.txt).join(', ')
 
     return (
-        <div className="todo-card" onClick={() => onClick(note)}>
+        <div className="card-content todo-card" onClick={() => onClick(note)}>
             { label && <h1 className="card-label">{label}</h1> }
-            <ul className="todos">
+            <div className="todos">
                 {todos.map((todo, idx) => (
-                    <li className="todo" key={idx}>{todo.txt}</li>
+                    <div key={idx} className="todo-row">
+                        <input type="checkbox" name="marked" checked={!!todo.doneAt} onChange={(ev) => ev.preventDefault()}/>
+                        <span className={`todo-item ${todo.doneAt ? 'marked' : ''}`} key={idx}>{todo.txt}</span>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     )
 }
