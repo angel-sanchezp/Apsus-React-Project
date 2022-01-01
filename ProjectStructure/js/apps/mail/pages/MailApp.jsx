@@ -4,13 +4,14 @@ import { MailList } from '../cmp/MailList.jsx';
 import { MailSideNav } from '../cmp/MailSideNav.jsx';
 import { MailCompose } from '../cmp/MailCompose.jsx';
 
-const {Route}= ReactRouterDOM
+const { Route } = ReactRouterDOM
 export class MailApp extends React.Component {
 
 
     state = {
         mails: null,
         filterBy: null,
+
 
     }
 
@@ -23,10 +24,6 @@ export class MailApp extends React.Component {
             this.setState({ mails })
         })
     }
-
-
-
-
 
     onSetFilter = (filterBy) => {
         this.setState(prevState => ({ ...prevState, filterBy }), this.loadMails)
@@ -47,7 +44,10 @@ export class MailApp extends React.Component {
         )
     }
 
-  
+
+
+
+
 
     render() {
         const { mails } = this.state
@@ -69,7 +69,7 @@ export class MailApp extends React.Component {
                     return <MailCompose {...props}/>
                 }} />
               */}
-                 <Route exact component={MailCompose} path="/mail/newMail"  loadMails={this.loadMails}/>
+                <Route exact component={MailCompose} path="/mail/newMail" loadMails={this.loadMails} />
             </section>
         )
 

@@ -18,7 +18,7 @@ export function MailList({ mails, onSortBy, filterBy, onSetFilter, loadMails }) 
                     <div onClick={() => { onSortBy('from') }} className=" cell mail-from-list">From</div>
                     <div className="cell mail-subject-list">Subject</div>
                     <div className="cell mail-message-list">Message</div>
-                    <div onClick={() => { onSortBy('date') }} className="dell mail-time-list">Time</div>
+                    <div onClick={() => { onSortBy('date') }} className="dell mail-time-list">Date/Time</div>
                 </div>
                 {mails.length === 0 && (
                     <h1 className="no-mails-to-show">No mails to show</h1>
