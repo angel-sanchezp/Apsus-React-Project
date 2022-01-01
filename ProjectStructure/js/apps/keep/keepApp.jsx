@@ -86,8 +86,12 @@ export class KeepApp extends React.Component {
         }))
     }
 
+    // onSaveNote =
+    // onSaveNote={onSaveNote}
+
+
     render(){
-        const {notes , editingNote } = this.state
+        const {notes , editingNote , onSaveNote } = this.state
         console.log(this.state.editingNote)
         return (
             <section className="keep-up-container">
@@ -101,7 +105,7 @@ export class KeepApp extends React.Component {
                             onRemove={this.loadNotes}
                             editingNote={this.state.editingNote}/>
                     </div>
-                    <div>{editingNote && <EditModal note={editingNote}/> }</div>
+                    <div>{editingNote && <EditModal note={editingNote} /> }</div>
                 </div>
             </section>
         )
