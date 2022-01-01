@@ -1,7 +1,7 @@
 
 .about-app{
     display: flex;
-    margin-top: 50px;
+    margin-top: 20px;
     background-color: white;
     height: 100%;
 }
@@ -14,6 +14,10 @@
     text-align: center;
     font-family: arial;
   }
+
+.angel-img{
+  width:70%
+}
   
   .title-about-app {
     color: grey;
@@ -45,4 +49,5 @@
 
 .card-about-app{
   height: 100%;
+  width: 300px;
 }

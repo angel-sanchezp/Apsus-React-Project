@@ -9,7 +9,7 @@ export function About(props) {
     return (
         <section className="about-app">
             <div className="card-about-app">
-                <img src="img/angel1.jpeg" alt="angel" style={{width: "100%"}}/>
+                <img className="angel-img" src="img/angel1.jpeg" alt="angel" />
                 <div className="card-about-txt">
                     <h1>Angelica Serebnitsky</h1>
                     <p className="title-about-app">Technical Software & Full Stack Developer Student</p>
