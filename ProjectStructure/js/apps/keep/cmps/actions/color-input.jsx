@@ -1,9 +1,5 @@
 const colors = ['#fdfe8a' ,'#adffef' ,'#facb87' , '#dcbbff', '#f7898a' , '#cdff9b' , '#fdfdfd', '#FFAEBC', '#B4F8C8', '#A0E7E5', '#FBE7C6']
 
-const getRandomColor = () => {
-    var pickedColor = colors[Math.floor(Math.random()* colors.length)]
-    return pickedColor
-}
 
 export class ColorInput extends React.Component {
     state = {

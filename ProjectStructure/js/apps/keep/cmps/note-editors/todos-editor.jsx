@@ -1,4 +1,4 @@
-import { notesService } from "../../services/note.service"
+import { notesService } from "../../services/note.service.js"
 
 
 

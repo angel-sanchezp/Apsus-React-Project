@@ -59,7 +59,7 @@ const gNotes = [
         }
     },
     {
-        id: "n106",
+        id: "n105",
         type: "note-img",
         info: {
             url: "https://ubject.co.il/wp-content/uploads/LAGOON-GREEN-1.jpg",
@@ -81,7 +81,7 @@ const gNotes = [
         }
     },
     {
-        id: "n106",
+        id: "n107",
         type: "note-txt",
         info: {
             title: "Lior & Asaf Wedding 26.05 💍"
@@ -91,7 +91,7 @@ const gNotes = [
         }
     },
     {
-        id: "n105",
+        id: "n108",
         type: "note-video",
         info: {
             url: "JkafqBj6dsk",
