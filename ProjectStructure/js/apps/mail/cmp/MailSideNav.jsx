@@ -35,7 +35,7 @@ export class MailSideNav extends React.Component {
           <Link to="/mail/newMail">
             <div className="side-nav-compose">
               <div className="side-nav-icon">
-                <img src="./img/icons/plus.png" />
+                <img src="img/icons/plus.png" />
               </div>
               Compose
             </div>
@@ -48,7 +48,7 @@ export class MailSideNav extends React.Component {
           }}
           className={`${status === "inbox" ? "active" : ""
             } side-nav side-nav-inbox`}>
-          <img src="../img/icons/inbox-icon.png" />
+          <img src="img/icons/inbox-icon.png" />
           Inbox
         </div>
         <div
@@ -57,7 +57,7 @@ export class MailSideNav extends React.Component {
             this.setFilter("sent")
           }}
           className={`${status === "sent" ? "active" : ""} side-nav`}>
-          <img src="../img/icons/send-icon.png" />
+          <img src="img/icons/send-icon.png" />
           Sent
         </div>
         <div
@@ -66,7 +66,7 @@ export class MailSideNav extends React.Component {
             this.setFilter("trash")
           }}
           className={`${status === "trash" ? "active" : ""} side-nav`}>
-          <img src="../img/icons/trash-icon.png" />
+          <img src="img/icons/trash-icon.png" />
           Trash
         </div>
         <div
@@ -75,7 +75,7 @@ export class MailSideNav extends React.Component {
             this.setFilter("draft")
           }}
           className={`${status === "draft" ? "active" : ""} side-nav`}>
-          <img src="../img/icons/draft-icon.png" />
+          <img src="img/icons/draft-icon.png" />
           Draft
         </div>
       </div>
