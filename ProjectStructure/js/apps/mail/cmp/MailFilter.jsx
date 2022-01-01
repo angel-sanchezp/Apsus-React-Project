@@ -2,8 +2,10 @@
 export class MailFilter extends React.Component {
 
     state = {
-        txt: '',
-        status: ''
+        filterBy:{
+            txt: '',
+            status: ''
+        }
     };
 
     handleChange = ({ target }) => {
@@ -24,7 +26,7 @@ export class MailFilter extends React.Component {
 
 
     render() {
-        const { txt, status } = this.state;
+        const { txt} = this.state;
         return (
             <div className="search-filter-container">
                 <form className="search-mail-form" onSubmit={this.onSubmitFilter}>
@@ -38,6 +40,7 @@ export class MailFilter extends React.Component {
                         <option value="read">Read</option>
                         <option value="sent">Sent</option>
                         <option value="draft">Draft</option>
+                        <option value="favorite">Favorite</option>
                     </select>
                     </div>
                     <div>

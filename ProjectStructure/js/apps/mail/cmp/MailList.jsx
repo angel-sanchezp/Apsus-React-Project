@@ -1,7 +1,7 @@
 import { MailPreview } from './MailPreview.jsx'
 import { MailFilter } from './MailFilter.jsx'
 
-export function MailList({ mails, onSortBy, filterBy, onSetFilter, loadMails }) {
+export function MailList({ mails, onSortBy, filterBy, onSetFilter, loadMails,onToggleStar }) {
     return (
 
         <section className="mails-container main-layout">
@@ -15,6 +15,7 @@ export function MailList({ mails, onSortBy, filterBy, onSetFilter, loadMails }) 
             </div>
             <div className="list-container">
                 <div className="top-bar-list full">
+                    <div className="cell mail-subject-list">Fav</div>
                     <div onClick={() => { onSortBy('from') }} className=" cell mail-from-list">From</div>
                     <div className="cell mail-subject-list">Subject</div>
                     <div className="cell mail-message-list">Message</div>
@@ -27,6 +28,7 @@ export function MailList({ mails, onSortBy, filterBy, onSetFilter, loadMails }) 
                     mails.map((mail) => (
                         <MailPreview
                             loadMails={loadMails}
+                            onToggleStar={onToggleStar}
                             key={mail.id}
                             mail={mail}
                         />

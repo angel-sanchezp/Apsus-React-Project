@@ -39,12 +39,15 @@ export class MailPreview extends React.Component {
 
 
     render() {
-        const { mail } = this.props;
+        const { mail , onToggleStar} = this.props;
         const { isShowOptions } = this.state;
         return (
             // <Link to={`/mail/details/${mail.id}`} style={{ textDecoration: 'none' }}>
             <section className="mail-preview-conteiner" onMouseOver={this.onShowOptions} onMouseLeave={this.onHideOptions} >
                 <section className={`mail-preview ${(mail.isRead) ? 'read' : ''}`}>
+                <button onClick={() => onToggleStar(mail.id, 'isStarred')} className={`mail-star ${mail.isStarred}`}>
+              <i className="fas fa-star"></i>
+            </button>
                     <div className="column-mail mail-from">
                         <h4>{mail.from}</h4>
                     </div>

@@ -23,14 +23,23 @@ export class MailApp extends React.Component {
 
     loadMails = () => {
         mailService.query(this.state.filterBy).then((mails) => {
+            // console.log(mails)
             this.setState({ mails })
         })
     }
 
     onSetFilter = (filterBy) => {
+        // console.log(filterBy)
         this.setState(prevState => ({ ...prevState, filterBy }), this.loadMails)
     }
 
+    onToggleStar = (mailId,  star) => {
+        mailService.updateMail(mailId, star).then((mail) => {
+        //   console.log(mail);
+          this.loadMails();
+        })
+      }
+   
 
     onSortBy = (sortBy) => {
         mailService.sortBy(sortBy).then((mails) => {
@@ -74,12 +83,14 @@ export class MailApp extends React.Component {
                     mails={mails}
                     onSortBy={this.onSortBy}
                     onSetFilter={this.onSetFilter}
+                    onToggleStar={this.onToggleStar}
                 />
                 {/* <Route  path={`${this.props.match.path}/newMail`} render={(props) => {
                     return <MailCompose {...props}/>
                 }} />
               */}
-                <Route exact component={MailCompose} path="/mail/newMail"/>
+                <Route exact component={MailCompose} path="/mail/newMail" render={()=>(
+                    <MailCompose {...props}   loadMails={this.loadMails}/>)}/>
                 {/* <Route path="/life" render={props => <Life sayHello = {this.sayHello} />} /> */}
             </section>
         )

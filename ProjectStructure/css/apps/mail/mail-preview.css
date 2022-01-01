@@ -20,6 +20,20 @@
   box-shadow: 1px 1px 8px 1px #a5a4a4;
 }
 
+.mail-star {
+  border: none;
+  background-color: inherit;
+  color: gray;
+}
+
+.mail-star:hover {
+  cursor: pointer;
+}
+
+.mail-star.true {
+  color: gold
+}
+
 .column{
   display: flex;
   justify-items: right;
