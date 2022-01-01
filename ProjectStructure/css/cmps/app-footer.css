@@ -13,5 +13,12 @@
     left: 0;
     right: 0;
     height:3.125rem;
+    display: block;
     /* width: 644px; */
+}
+
+@media(max-width:650px){
+    .app-footer{
+        display: none;
+    }
 }

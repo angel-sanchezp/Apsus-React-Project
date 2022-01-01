@@ -37,6 +37,7 @@ export class MailFilter extends React.Component {
                         <option value="unRead">UnRead</option>
                         <option value="read">Read</option>
                         <option value="sent">Sent</option>
+                        <option value="draft">Draft</option>
                     </select>
                     </div>
                     <div>

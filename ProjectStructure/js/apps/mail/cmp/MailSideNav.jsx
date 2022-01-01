@@ -16,6 +16,7 @@ export class MailSideNav extends React.Component {
       { filterBy: { ...this.state.filterBy, status: value } },
       () => {
         this.props.getCurrStatus(this.state.filterBy.status)
+        
 
       }
     )
@@ -28,10 +29,8 @@ export class MailSideNav extends React.Component {
 
   render() {
     const { status } = this.state.filterBy
-
-
     return (
-      <div className={`mail-side-nav ${"active-side-nav"}`}>
+      <div className={"mail-side-nav"}>
         <div className="compose-container">
           <Link to="/mail/newMail">
             <div className="side-nav-compose">
@@ -83,3 +82,6 @@ export class MailSideNav extends React.Component {
     )
   }
 }
+
+
+{/* <div className={`mail-side-nav ${"active-side-nav"}`}> */}
