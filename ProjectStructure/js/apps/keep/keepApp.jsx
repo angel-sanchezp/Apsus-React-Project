@@ -25,7 +25,7 @@ export class KeepApp extends React.Component {
     loadNotes = () => {
         const { filterBy } = this.state
         notesService.query(filterBy).then(notes => {
-            this.setState({ notes })
+            this.setState(prevState=>({ ...prevState, notes }))
         })
     }
 
@@ -86,13 +86,36 @@ export class KeepApp extends React.Component {
         }))
     }
 
-    // onSaveNote =
-    // onSaveNote={onSaveNote}
+    closeModal = () => {
+        this.setState(prevState=>({ 
+            ...prevState, 
+            editingNote: null
+        }))
+    }
 
+     onSaveNote = (note) => {
+        console.log('save note clicked' ,note)
+        notesService.updateNote(note).then(()=>{
+            this.closeModal()
+            this.loadNotes()
+        })
+    }
 
+    changeNoteColor = (note, color) => {
+        const updatedNote = {
+            ...note,
+            style: {
+                ...note.style,
+                backgroundColor: color
+            }
+        }
+        notesService.updateNote(updatedNote).then(()=>{
+            this.loadNotes()
+        })
+    }
+   
     render(){
-        const {notes , editingNote , onSaveNote } = this.state
-        console.log(this.state.editingNote)
+        const { editingNote } = this.state
         return (
             <section className="keep-app-container">
                 <div className="keep-margins">
@@ -103,9 +126,10 @@ export class KeepApp extends React.Component {
                             onClick={this.handleNoteClick}
                             onSelectNote={this.onSelectNote}
                             onRemove={this.loadNotes}
+                            onColorChange={this.changeNoteColor}
                             editingNote={this.state.editingNote}/>
                     </div>
-                    <div>{editingNote && <EditModal note={editingNote} /> }</div>
+                    <div>{editingNote && <EditModal note={editingNote} onSaveNote={this.onSaveNote} onClose={this.closeModal}/> }</div>
                 </div>
             </section>
         )
@@ -113,26 +137,3 @@ export class KeepApp extends React.Component {
     }
     
 }
-
-
-
-// export function RenderNoteApp() {
-//     return (
-//       <Router >
-//         <header className="main-header">
-//          <AppHeader/>
-//         </header>
-//         <section className="app" >
-//           <main>
-//             <Switch>
-//               <Route component={NoteDetails} path="/note/:noteId" />
-//               <Route component={NoteApp} path="/note" />
-//             </Switch>
-//           </main>
-//         </section>
-//        <UserMessage/>
-//       </Router>
-//     );
-//   }
-
-  

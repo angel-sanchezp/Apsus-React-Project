@@ -11,7 +11,6 @@ import { MailDetails } from './ProjectStructure/js/apps/mail/pages/MailDetails.j
 // GENERAL COMPONENTS
 import { AppHeader } from './ProjectStructure/js/cmps/AppHeader.jsx'
 import { UserMsg } from './ProjectStructure/js/cmps/user-msg.jsx'
-import { AppFooter } from './ProjectStructure/js/cmps/AppFooter.jsx'
 // RAUTERING
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
@@ -36,7 +35,6 @@ export function App() {
         </main>
       </section>
      <UserMsg/>
-     <AppFooter/>
     </Router>
   );
 }

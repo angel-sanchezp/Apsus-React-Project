@@ -23,6 +23,7 @@
 @import "./apps/keep/main-keep.css";
 @import "./apps/keep/note-preview.css";
 @import "./apps/keep/modal-preview.css";
+@import "./apps/keep/color-input.css";
 
 body{
     font-family: Tahoma, sans-serif ;

@@ -8,6 +8,7 @@ export const notesService = {
     updateNote,
     addNote,
     getNoteById,
+    
 }
 
 const KEY = 'NotesDB'
@@ -29,7 +30,7 @@ const gNotes = [
             title: "Cake recipe"
         },
         style: {
-            backgroundColor: "#00d"
+            backgroundColor: '#fdfe8a'
         }
     },
     {
@@ -53,7 +54,26 @@ const gNotes = [
             title: "good song for my wedding"
         },
         style: {
-            backgroundColor: "#00d"
+            backgroundColor: '#adffef'
+        }
+    },
+    {
+        id: "n105",
+        type: "note-video",
+        info: {
+            url: "JkafqBj6dsk",
+            title: "good song"
+        },
+        style: {
+            backgroundColor: '#cdff9b'
+        }
+    },
+    {
+        id: "n106",
+        type: "note-img",
+        info: {
+            url: "https://ubject.co.il/wp-content/uploads/LAGOON-GREEN-1.jpg",
+            title: "couch for my new home"
         }
     }
 
@@ -77,6 +97,15 @@ function _getFilteredNotes(notes, filterBy) {
         return note.type.includes(filterBy)
     })
 }
+
+function updateNote(note){
+    const notes = _loadNotesFromStorage()
+    const oldNoteIdx = notes.findIndex((curr => curr.id === note.id))
+    notes[oldNoteIdx] = note
+    _saveNotesToStorage(notes);
+    return Promise.resolve(note)
+}
+
 
 
 
@@ -113,15 +142,7 @@ function getNoteById(noteId) {
     return Promise.resolve(note)
 }
 
-function updateNote(noteId, newNote) {
-    const notes = _loadNotesFromStorage()
-    var noteIdx = notes.findIndex(function (note) {
-        return note.id === noteId;
-    })
-    notes[noteIdx] = newNote;
-    _saveNotesToStorage(notes);
-    return Promise.resolve()
-}
+
 
 
 function _saveNotesToStorage(notes) {

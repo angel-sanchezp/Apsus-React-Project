@@ -20,12 +20,16 @@
     box-shadow: 0 5px 10px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
 }
 
-.card img{
+.card-img{
     width: 100%;
 }
 
 .card.todo-card{
     text-align: left;
+}
+
+.card.todo-card.todo {
+    text-align: start;
 }
 
 .play{
@@ -41,28 +45,26 @@
 .actions-container{
     display: flex;
     justify-content: space-between;
-    height: 35px;
-    width: 35px;
+    width: 40%;
     padding: 0;
     margin: 0;
- 
-    /* margin-top: 10px; */
+    margin-top: 5%;
 }
 
-.card:hover  .btn-remove {
+/* .card:hover  .btn-remove {
     display: block;
 }
 
 .card:hover  .btn-edit {
     display: block;
-}
+} */
 
 .card:hover  .btn-send-mail {
     display: block;
 }
 
 .btn-remove{
-    display: none;
+    /* display: none; */
     height: 100%;
     width: 100%;
     padding: 0;
@@ -71,12 +73,20 @@
 }
 
 .btn-edit{
-    display: none;
+    /* display: none; */
     height: 100%;
     width: 100%;
     border: none;
     background: none;
     padding: 0;    
+}
+
+.action-btn{
+    height: 100%;
+    width: 20px;
+    border: none;
+    background: none;
+    padding: 0; 
 }
 
 .btn-send-mail{
@@ -124,4 +134,12 @@
 .btn-filter:hover{
     background: silver;
     border: none;
+}
+
+.btn-keep-app-mail{
+    width: 10%;
+}
+
+.img-preview{
+    width: 100%;
 }

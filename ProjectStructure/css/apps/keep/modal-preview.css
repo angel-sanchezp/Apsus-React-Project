@@ -34,3 +34,26 @@
     /* margin-top: 20px; */
     width: 330px;
   }
+
+  #img-input{
+    width: 80%;
+  }
+
+  .close-modal {
+    position: absolute;
+    right: 34%;
+    top: 6.5%;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #76b2d2;
+    padding: 0.5em , 0.1em;
+    margin-right: -2%;
+    border-radius: 0.1em;
+    background-color: white;
+
+  }
+
+  .btn-todo-remove{
+    width:15px
+  }
+
