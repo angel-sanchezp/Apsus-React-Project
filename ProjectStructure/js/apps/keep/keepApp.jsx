@@ -86,11 +86,15 @@ export class KeepApp extends React.Component {
         }))
     }
 
+    // onSaveNote =
+    // onSaveNote={onSaveNote}
+
+
     render(){
-        const {notes , editingNote } = this.state
+        const {notes , editingNote , onSaveNote } = this.state
         console.log(this.state.editingNote)
         return (
-            <section className="keep-up-container">
+            <section className="keep-app-container">
                 <div className="keep-margins">
                 <AddNote onSetInput={this.onSetInput} loadNotes={this.loadNotes}/>
                 <NotesFilter filterBy={this.state.filterBy} onSetFilter={this.onSetFilter}/>
@@ -101,7 +105,7 @@ export class KeepApp extends React.Component {
                             onRemove={this.loadNotes}
                             editingNote={this.state.editingNote}/>
                     </div>
-                    <div>{editingNote && <EditModal note={editingNote}/> }</div>
+                    <div>{editingNote && <EditModal note={editingNote} /> }</div>
                 </div>
             </section>
         )

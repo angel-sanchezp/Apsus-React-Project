@@ -21,6 +21,7 @@ export class EditModal extends React.Component {
                     <h1>Tell us about the book </h1>
                     {/* <button className = "btn close-modal" onClick = {()=> this.props.onToggleReviewModal()}>x</button> */}
                     <PreviewComponent {...this.props} isEditMode={true} />
+                    <button className="btn-save" onClick={this.props.onSaveNote(this.props.note)}>save</button>
                 </div>
             </div>
         )
