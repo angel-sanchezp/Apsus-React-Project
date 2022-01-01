@@ -1,0 +1,29 @@
+.color-input-modal {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
+    background: #e3d7d7d6;
+    overflow: auto;
+    margin-top: 30px;
+    border-radius: 10px;
+    width: 450px;
+}
+
+.color-input-modal > *:not(:last-child) {
+    margin-inline-end: 0.5rem;
+}
+
+.color-input-modal .color-value {
+    width: 40px;
+    height: 40px;
+    background-color: silver;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid #1b1b1b;
+    transition: 0.3s ease-in-out;
+}
+.color-input-modal .color-value:hover {
+    transform: scale(1.1);
+}
