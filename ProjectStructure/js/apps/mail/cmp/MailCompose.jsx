@@ -20,7 +20,7 @@ export class MailCompose extends React.Component {
     console.log(newBody)
     if (newBody) {
       this.setState({ mail: { ...this.state.mail, body: newBody,subject:newSubj } })
-      console.log(this.state.mail)
+      // console.log(this.state.mail)
     }
   }
 

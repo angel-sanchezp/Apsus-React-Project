@@ -4,13 +4,15 @@ import { MailList } from '../cmp/MailList.jsx';
 import { MailSideNav } from '../cmp/MailSideNav.jsx';
 import { MailCompose } from '../cmp/MailCompose.jsx';
 
-const { Route } = ReactRouterDOM
+const { Link, Route } = ReactRouterDOM
 export class MailApp extends React.Component {
 
 
     state = {
         mails: null,
         filterBy: null,
+        // isMailMenuOpen:false,
+
 
 
     }
@@ -45,7 +47,9 @@ export class MailApp extends React.Component {
     }
 
 
-
+    // onToggleMailMenu=()=>{
+    //     this.setState({ isMailMenuOpen: !this.state.isMailMenuOpen });
+    // }
 
 
 
@@ -54,10 +58,16 @@ export class MailApp extends React.Component {
         if (!mails) return <h1>Load..</h1>
         return (
             <section className="mail-main-container">
+                <Link to="/mail/newMail" >
+                    <button className="btn-mail-burger" onClick={this.onToggleMailMenu}> <img src="./img/icons/plus.png" /></button>
+                </Link>
+
                 <MailSideNav
                     getCurrStatus={this.getCurrStatus}
                     onSetFilter={this.onSetFilter}
                     loadMails={this.loadMails}
+                // isMailMenuOpen={isMailMenuOpen}
+                // onToggleMailMenu={this.onToggleMailMenu}
                 />
                 <MailList
                     loadMails={this.loadMails}
@@ -69,7 +79,8 @@ export class MailApp extends React.Component {
                     return <MailCompose {...props}/>
                 }} />
               */}
-                <Route exact component={MailCompose} path="/mail/newMail" loadMails={this.loadMails} />
+                <Route exact component={MailCompose} path="/mail/newMail"/>
+                {/* <Route path="/life" render={props => <Life sayHello = {this.sayHello} />} /> */}
             </section>
         )
 

@@ -12,7 +12,7 @@
   }
   
   .list-container{
-    overflow:scroll;
+    /* overflow:scroll; */
     margin-top: 2rem;
   }
 
